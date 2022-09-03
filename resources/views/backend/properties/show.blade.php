@@ -22,23 +22,40 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div id="slider" class="owl-carousel product-slider">
-
                             <div class="item">
                                 <img src="{{ asset('/cover/' . $property->cover) }}" class="img-responsive" alt=""
                                     srcset="">
                             </div>
 
+                            {{-- <div class="item">
+                                <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
+                            </div>
+
+                            <div class="item">
+                                <img
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQI6nUmObt62eDkqNSmIvCN_KkQExtbpJmUbVx_eTh_Y3v3r-Jw" />
+                            </div> --}}
+                            @foreach ($property->images as $img)
+                            <div class="item">
+                                <img src="{{ asset('/images/' . $img->image) }}" class="img-responsive" alt=""
+                                    srcset="">
+                            </div>
+                        @endforeach
                         </div>
                         <div id="thumb" class="owl-carousel product-thumb">
-                            
-                                @foreach ($property->images as $img)
-                                    <div class="item">
-                                        <img src="{{ asset('/images/'. $img->image) }}" class="img-responsive"
-                                            alt="" srcset="">
-                                    </div>
-                                @endforeach
-                           
-                                {{-- <div class="item">
+                            <div class="item">
+                                <img src="{{ asset('/cover/' . $property->cover) }}" class="img-responsive" alt=""
+                                    srcset="">
+                            </div>
+                            @foreach ($property->images as $img)
+                                <div class="item">
+                                    <img src="{{ asset('/images/' . $img->image) }}" class="img-responsive" alt=""
+                                        srcset="">
+                                </div>
+                            @endforeach
+
+
+                            {{-- <div class="item">
                                     <img src="{{ asset('/cover/' . $property->cover) }}" class="img-responsive" alt=""
                                         srcset="">
                                 </div> --}}
