@@ -22,22 +22,27 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div id="slider" class="owl-carousel product-slider">
-                        
+
                             <div class="item">
-                                <img src="{{ asset('/cover/' . $property->cover) }}" class="img-responsive"
-                                    alt="" srcset="">
+                                <img src="{{ asset('/cover/' . $property->cover) }}" class="img-responsive" alt=""
+                                    srcset="">
                             </div>
-                           
+
                         </div>
                         <div id="thumb" class="owl-carousel product-thumb">
-                            @foreach($property as $key => $properties)
-                                <div class="item">
-                                <img src="{{ asset('/images/' . $properties->$property_id->image) }}" class="img-responsive"
-                                    alt="" srcset="">
-                            </div>
-                            @endforeach
                             
+                                @foreach ($property->images as $img)
+                                    <div class="item">
+                                        <img src="{{ asset('/images/'. $img->image) }}" class="img-responsive"
+                                            alt="" srcset="">
+                                    </div>
+                                @endforeach
                            
+                                {{-- <div class="item">
+                                    <img src="{{ asset('/cover/' . $property->cover) }}" class="img-responsive" alt=""
+                                        srcset="">
+                                </div> --}}
+
                         </div>
                     </div>
                     <div class="col-md-6">

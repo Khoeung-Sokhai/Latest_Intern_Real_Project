@@ -89,7 +89,7 @@ class PropertyController extends Controller
      */
     public function show(Property $property)
     {
-        
+        $property->load('images');
         return view('backend.properties.show',compact('property'));
     }
 

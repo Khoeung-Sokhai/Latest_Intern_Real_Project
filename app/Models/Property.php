@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Property extends Model
 {
     use HasFactory;
+    
+    protected $primaryKey = 'id';
+
     protected $fillable=[
         'name',
         'address',
@@ -25,6 +28,6 @@ class Property extends Model
  
 
     public function images(){
-        return $this->HasMany(Image::class);
+        return $this->hasMany(Image::class);
     }
 }
