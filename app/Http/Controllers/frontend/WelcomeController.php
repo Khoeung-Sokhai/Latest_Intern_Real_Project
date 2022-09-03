@@ -20,9 +20,9 @@ class WelcomeController extends Controller
         $sihano = Property::where('address','=','Sihano')->count();
         $siem_reab = Property::where('address','=','Siem Reab')->count();
         $bat_dambang = Property::where('address','=','Batdambang')->count();
-        $kampongchnang = Property::where('address','=','Kampongchnang')->count();
+        $kompongcham = Property::where('address','=','Kompongcham')->count();
         $kompot = Property::where('address','=','kompot')->count();
-        return view('frontend.welcome',compact('properties', 'phnom_penh', 'sihano', 'siem_reab', 'kampongchnang', 'bat_dambang', 'kompot'));
+        return view('frontend.welcome',compact('properties', 'phnom_penh', 'sihano', 'siem_reab', 'kompongcham', 'bat_dambang', 'kompot'));
     }
 
     /**

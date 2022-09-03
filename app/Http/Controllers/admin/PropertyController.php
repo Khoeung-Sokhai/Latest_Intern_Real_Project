@@ -63,6 +63,7 @@ class PropertyController extends Controller
             ]);
             $properties->save();
         }
+       
 
         if ($request->hasFile("images")) {
             $files = $request->file("images");
@@ -77,7 +78,7 @@ class PropertyController extends Controller
 
         // dd($request);
 
-        return redirect()->route('properties.index')->with('success', 'Address created successfully!');
+        return redirect()->route('properties.index')->with('success', 'Property created successfully!');
     }
 
     /**
@@ -102,6 +103,7 @@ class PropertyController extends Controller
     {
         $properties = Property::findOrFail($id);
         return view('backend.properties.edit')->with('properties', $properties);
+        
     }
 
     /**
@@ -150,7 +152,7 @@ class PropertyController extends Controller
             }
         }
         return redirect()->route('properties.index')
-            ->with('success', 'Address updated successfully');
+            ->with('success', 'Property updated successfully');
     }
 
     /**
@@ -188,19 +190,17 @@ class PropertyController extends Controller
         return back();
     }
 
-    public function deletecover($id)
-    {
-        $cover = Property::findOrFail($id)->cover;
-        if (File::exists("cover/" . $cover)) {
-            File::delete("cover/" . $cover);
-        }
-        return back();
+   
+    public function deletecover($id){
+        $cover=Property::findOrFail($id)->cover;
+        if (File::exists("cover/".$cover)) {
+           File::delete("cover/".$cover);
+       }
+       return back();
     }
-
-
-    //many to many
-    public function types()
-    {
-        return $this->belongsToMany(Type::class);
-    }
+    // //many to many
+    // public function types()
+    // {
+    //     return $this->belongsToMany(Type::class);
+    // }
 }

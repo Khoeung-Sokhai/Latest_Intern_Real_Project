@@ -416,7 +416,7 @@
                             <img src="images/popular-places/11.jpg" class="img-responsive" alt="">
                             <div class="img-box-content visible">
                                 <h4 class="mb-2">Kompongcham</h4>
-                                <span>{{ $kampongchnang }} Properties</span>
+                                <span>{{ $kompongcham }} Properties</span>
                                 <ul class="starts text-center mt-2">
                                     <li><i class="fa fa-star"></i>
                                     </li>

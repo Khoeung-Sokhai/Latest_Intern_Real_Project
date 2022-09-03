@@ -47,6 +47,7 @@
     margin-top: 10px;
     margin-right: 5px;
 }
+
 .form__files-container-form {
     display: flex;
     justify-content: center;
@@ -63,6 +64,7 @@
     position: relative;
     margin: 0 10px;
 }
+
 
 /* .form__image-container:not(:nth-child(2n)) {
     margin-right: 2%;

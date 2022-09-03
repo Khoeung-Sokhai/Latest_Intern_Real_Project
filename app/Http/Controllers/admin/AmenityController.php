@@ -46,7 +46,7 @@ class AmenityController extends Controller
         Amenity::create($request->all());
      
         return redirect()->route('amenities.index')
-                        ->with('success','amenities created successfully!');
+                        ->with('success','Amenities created successfully!');
     }
 
     /**
@@ -90,7 +90,7 @@ class AmenityController extends Controller
         $amenity->update($request->all());
     
         return redirect()->route('amenities.index')
-                        ->with('success','amenities updated successfully');
+                        ->with('success','Amenities updated successfully');
     }
 
     /**
@@ -104,6 +104,6 @@ class AmenityController extends Controller
         $amenity->delete();
     
         return redirect()->route('amenities.index')
-                        ->with('success','amenities deleted successfully');
+                        ->with('success','Amenities deleted successfully');
     }
 }

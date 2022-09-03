@@ -9,6 +9,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+        
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('backend/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Theme style -->
@@ -19,7 +20,8 @@
     <link rel="stylesheet" href="{{ asset('backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/backend/plugins/fontawesome-free/css/all.min.css') }}">
 
-
+   
+    
     <link rel="stylesheet" href="{{ asset('/backend/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet"
         href="{{ asset('/backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
@@ -42,7 +44,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-
+       
 
 </head>
 
@@ -68,30 +70,38 @@
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
-
+    {{-- <script src="{{ asset('/backend/dist/js/adminlte.min.js') }}"></script> --}}
     <!-- jQuery -->
-    {{-- <script src="{{ asset('backend/plugins/jquery/jquery.min.js') }}"></script>
+    {{-- <script src="{{ asset('/backend/dist/js/adminlte.min.js') }}"></script> --}}
+    <script src="{{ asset('backend/plugins/jquery/jquery.min.js') }}"></script>
     <!-- jQuery UI 1.11.4 -->
-    <script src="{{ asset('backend/plugins/jquery-ui/jquery-ui.min.js') }}"></script> --}}
+    <script src="{{ asset('backend/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-
+    
 
 
     <!-- PAGE PLUGINS -->
     <!-- jQuery Mapael -->
-    <script src="{{ asset('/backend/plugins/jquery-mousewheel/jquery.mousewheel.js') }}"></script>
-    <script src="{{ asset('/backend/plugins/raphael/raphael.min.js') }}"></script>
-    <script src="{{ asset('/backend/plugins/jquery-mapael/jquery.mapael.min.js') }}"></script>
-    <script src="{{ asset('/backend/plugins/jquery-mapael/maps/usa_states.min.js') }}"></script>
+    {{--  --}}
+    
+    
+   
+   <script src="{{ asset('/backend/plugins/jquery-mousewheel/jquery.mousewheel.js') }}"></script>
     <!-- ChartJS -->
+    <script src="{{ asset('/backend/plugins/raphael/raphael.min.js') }}"></script>
+    <script src="{{ asset('/backend/plugins/jquery-mapael/maps/usa_states.min.js') }}"></script>
+    <script src="{{ asset('/backend/plugins/jquery-mapael/jquery.mapael.min.js') }}"></script>
     <script src="{{ asset('/backend/plugins/chart.js/Chart.min.js') }}"></script>
-
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('/backend/dist/js/demo.js') }}"></script>
+    
     <script src="{{ asset('/backend/dist/js/show.js') }}"></script>
+
     <script src="{{ asset('/backend/dist/js/dragdrop.js') }}"></script>
+    
+
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="{{ asset('/backend/dist/js/pages/dashboard2.js') }}"></script>
+    {{-- <script src="{{ asset('/backend/dist/js/pages/dashboard2.js') }}"></script> --}}
 
     <!-- DataTables  & Plugins -->
     <script src="{{ asset('/backend/plugins/datatables/jquery.dataTables.min.js') }}"></script>
@@ -108,7 +118,9 @@
     <script src="{{ asset('/backend/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
     <script src="{{ asset('/backend/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
     <!-- AdminLTE App -->
-    <script src="{{ asset('/backend/dist/js/adminlte.min.js') }}"></script>
+
+    
+
     <script src="{{ asset('backend/plugins/jquery/jquery.min.js') }}"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="{{ asset('backend/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
@@ -155,6 +167,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="  sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
+     
     <script>
         $(document).ready(function() {
             $("#myInput").on("keyup", function() {
@@ -277,8 +290,25 @@
             });
         });
     </script>
+<script>
+    $(document).ready(function() {
+        // show the alert
+        $(".alert").fadeTo(5000, 500).slideUp(500, function() {
+            $(".alert").alert('close');
+        });
+    });
+</script>
 
-
+<script>
+    function showPreview(event){
+  if(event.target.files.length > 0){
+    var src = URL.createObjectURL(event.target.files[0]);
+    var preview = document.getElementById("file-ip-1-preview");
+    preview.src = src;
+    preview.style.display = "block";
+  }
+}
+</script>
 </body>
 
 </html>

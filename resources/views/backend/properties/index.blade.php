@@ -38,6 +38,11 @@
                             Create New Address</a>
                     </a>
                 </div>
+                @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    <p>{{ $message }}</p>
+                </div>
+                @endif
                 <div class="card-body p-0" style="height: 600px">
                     <table id="example2" class="table table-bordered table-hover table-striped projects">
                         <thead>

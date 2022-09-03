@@ -27,54 +27,17 @@
                                 <img src="{{ asset('/cover/' . $property->cover) }}" class="img-responsive"
                                     alt="" srcset="">
                             </div>
-                            <div class="item">
-                                <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
-                            </div>
-                            <div class="item">
-                                <img
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQI6nUmObt62eDkqNSmIvCN_KkQExtbpJmUbVx_eTh_Y3v3r-Jw" />
-                            </div>
-                            <div class="item">
-                                <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
-                            </div>
-                            <div class="item">
-                                <img
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQI6nUmObt62eDkqNSmIvCN_KkQExtbpJmUbVx_eTh_Y3v3r-Jw" />
-                            </div>
-                            <div class="item">
-                                <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
-                            </div>
-                            <div class="item">
-                                <img
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQI6nUmObt62eDkqNSmIvCN_KkQExtbpJmUbVx_eTh_Y3v3r-Jw" />
-                            </div>
+                           
                         </div>
                         <div id="thumb" class="owl-carousel product-thumb">
-                            <div class="item">
-                                <img
-                                    src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" />
+                            @foreach($property as $key => $properties)
+                                <div class="item">
+                                <img src="{{ asset('/images/' . $properties->$property_id->image) }}" class="img-responsive"
+                                    alt="" srcset="">
                             </div>
-                            <div class="item">
-                                <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
-                            </div>
-                            <div class="item">
-                                <img
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQI6nUmObt62eDkqNSmIvCN_KkQExtbpJmUbVx_eTh_Y3v3r-Jw" />
-                            </div>
-                            <div class="item">
-                                <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
-                            </div>
-                            <div class="item">
-                                <img
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQI6nUmObt62eDkqNSmIvCN_KkQExtbpJmUbVx_eTh_Y3v3r-Jw" />
-                            </div>
-                            <div class="item">
-                                <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
-                            </div>
-                            <div class="item">
-                                <img
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQI6nUmObt62eDkqNSmIvCN_KkQExtbpJmUbVx_eTh_Y3v3r-Jw" />
-                            </div>
+                            @endforeach
+                            
+                           
                         </div>
                     </div>
                     <div class="col-md-6">

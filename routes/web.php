@@ -107,6 +107,10 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::resource('/admin/rents', RentController::class);
     Route::resource('/admin/sales', SaleController::class);
     Route::resource('/admin/rentals', RentalController::class);
+    Route::delete('/deletecover/{id}',[PropertyController::class,'deletecover']);
+
+    Route::put('/update/{id}',[PropertyController::class,'update']);
+
     
     
 });

@@ -57,7 +57,7 @@ class UserController extends Controller
                             ]);
      
         return redirect()->route('users.index')
-                        ->with('success','Address created successfully!');
+                        ->with('success','User created successfully!');
     }
 
     /**
@@ -114,7 +114,7 @@ class UserController extends Controller
         $user->delete();
     
         return redirect()->route('users.index')
-                        ->with('success','Address deleted successfully');
+                        ->with('success','User deleted successfully');
     }
 //     public function upload(Request $request)
 // {

@@ -16,7 +16,7 @@ const previewImages = () => {
         FILE_LIST.forEach((addedFile, index) => {
             const content = `
 <div class="form__image-container js-remove-image" data-index="${index}">
-  <img class="form__image" src="${addedFile.url}" alt="${addedFile.name}">
+  <img class="form__image " src="${addedFile.url}" alt="${addedFile.name}">
 </div>
 `;
             FILES_LIST_CONTAINER.insertAdjacentHTML('beforeEnd', content);

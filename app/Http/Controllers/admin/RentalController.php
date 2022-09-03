@@ -72,7 +72,7 @@ class RentalController extends Controller
                 Image::create($request->all());
             }
         }
-        return redirect()->route('properties.index')->with('success', 'Address created successfully!');
+        return redirect()->route('properties.index')->with('success', 'Property created successfully!');
     }
 
     /**
@@ -141,7 +141,7 @@ class RentalController extends Controller
             }
         }
         return redirect()->route('properties.index')
-            ->with('success', 'Address updated successfully');
+            ->with('success', 'Property updated successfully');
     }
 
     /**
@@ -166,7 +166,7 @@ class RentalController extends Controller
         $properties->delete();
 
         return redirect()->route('properties.index')
-            ->with('success', 'Address deleted successfully');
+            ->with('success', 'Property deleted successfully');
     }
     public function deleteimage($id)
     {

@@ -25,6 +25,6 @@ class Property extends Model
  
 
     public function images(){
-        return $this->belongsTo(Image::class);
+        return $this->HasMany(Image::class);
     }
 }

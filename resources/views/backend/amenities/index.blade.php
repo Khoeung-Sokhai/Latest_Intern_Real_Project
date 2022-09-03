@@ -35,12 +35,12 @@
                     <h3 class="card-title">Amenity Of Property</h3>
                     <a class="btn btn-success float-sm-right btn-info btn-sm" href="{{ route('amenities.create') }}"> Create New Amenity</a>
                 </div>
-                {{-- @if ($message = Session::get('success'))
+                @if ($message = Session::get('success'))
                     <div class="alert alert-success">
                         <p>{{ $message }}</p>
                     </div>
                 @endif
-                --}}
+               
                 <div class="card-body p-0">
                     <table id="example2" class="table table-bordered table-hover table-striped projects">
                         <thead>
@@ -138,22 +138,6 @@
     </section>
 </div>
 
-    <script>
-        $(function () {
-          $("#example1").DataTable({
-            "responsive": true, "lengthChange": false, "autoWidth": false,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-          }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-          $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-          });
-        });
-       
+
 
 @endsection

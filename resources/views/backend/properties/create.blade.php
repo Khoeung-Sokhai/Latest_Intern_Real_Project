@@ -10,6 +10,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
+            
             <form action="/admin/properties" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
@@ -63,7 +64,7 @@
                         <div class="col-sm-4">
                             <div class="form-check mb-1">
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
-                                autocomplete="off">
+                                    autocomplete="off">
                                 <label class="form-check-label" for="flexCheckChecked">For Rent</label>
                             </div>
                             <input type="text" class="form-control" name="price_rent" id="exampleInputName1"
@@ -72,7 +73,7 @@
                         <div class="col-sm-4">
                             <div class="form-check mb-1">
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
-                                autocomplete="off">
+                                    autocomplete="off">
                                 <label class="form-check-label" for="flexCheckChecked">For Rent</label>
                             </div>
                             <input type="text" class="form-control" name="price_rental" id="exampleInputName1"
@@ -85,34 +86,41 @@
                             placeholder="Description"></textarea>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-3">
                             <!-- select -->
                             <div class="form-group">
                                 <label for="image">Cover</label>
                                 <div class="input-group">
-                                    <div class="custom-file">
-                                        <input type="file" id="input-file-now-custom-3" class="form-control m-0"
-                                            name="cover">
+                                    <div class="custom-file ">
+                                        <input type="file" id="file-ip-1" class="form-control m-0" accept="image/*" name="cover"
+                                            onchange="showPreview(event);">
                                     </div>
-                                    <div class="form__files-container" id=""><label
-                                        class="form__files-container-form">Images Container</div>
+                                    <div class="form__files-container " id="files-list-container-cover"><label
+                                            class="form__files-container-form ">
+
+                                            <div class="form__image-container" data-index="${index}">
+                                                <img class="form__image " id="file-ip-1-preview">
+                                              </div>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-9">
                             <!-- select -->
                             <div class="form-group">
                                 <label for="image">Image</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" id="upload-files" class="form-control m-0"
-                                            name="images[]" multiple>
+                                        <input type="file" id="upload-files" class="form-control m-0" name="images[]"
+                                            multiple>
                                     </div>
                                     <div class="form__files-container" id="files-list-container"><label
-                                        class="form__files-container-form">Images Container</div>
+                                            class="form__files-container-form">Images Container</div>
                                 </div>
-                                
+
                             </div>
+
                         </div>
                     </div>
                 </div>
