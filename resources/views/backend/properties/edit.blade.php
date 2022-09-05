@@ -11,16 +11,6 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-
-            <form action="/deletecover/{{ $properties->id }}" method="post">
-                <button class="btn text-danger">X</button>
-                @csrf
-                @method('delete')
-                <img src="/cover/{{ $properties->cover }}" class="img-responsive" style="max-height: 100px; max-width: 100px;" alt="" srcset="">
-                </form>
-                
-
-
             <form action="{{ route('properties.update', $properties->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
@@ -99,15 +89,17 @@
                                 <label for="image">Cover</label>
                                 <div class="input-group">
                                     <div class="custom-file ">
-                                        <input type="file" id="file-ip-1" class="form-control m-0" accept="image/*" name="cover"
-                                            onchange="showPreview(event);">
+                                        <input type="file" id="file-ip-1" class="form-control m-0" accept="image/*"
+                                            name="cover" onchange="showPreview(event);">
                                     </div>
                                     <div class="form__files-container " id="files-list-container-cover"><label
                                             class="form__files-container-form ">
 
                                             <div class="form__image-container" data-index="${index}">
-                                                <img class="form__image " id="file-ip-1-preview">
-                                              </div>
+                                                <img class="form__image "
+                                                    src="{{ asset('/cover/' . $properties->cover) }}"
+                                                    id="file-ip-1-preview">
+                                            </div>
                                     </div>
                                 </div>
                             </div>
@@ -118,32 +110,37 @@
                                 <label for="image">Image</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" id="input-file-now-custom-3" class="form-control m-0"
-                                            name="images[]" multiple>
+                                        <input type="file" id="upload-files" class="form-control m-0" name="images[]"
+                                            multiple>
                                     </div>
-
+                                    <div class="form__files-container" id="files-list-container"><label
+                                            class="form__files-container-form">
+                                            @foreach ($properties->images as $img)
+                                            <div data-index="${index}">
+                                                <img src="{{ asset('/images/' . $img->image) }}" class="form__image"
+                                                    alt="" srcset="">
+                                            </div>
+                                            @endforeach
+                                    </div>
                                 </div>
-                                <div class="form__files-container" id="files-list-container"><label
-                                        class="form__files-container-form">Images Container</div>
                             </div>
                         </div>
+
+                        <!-- select -->
+                        <div class="form-group">
+                            <label for="name">Description</label>
+                            <textarea class="form-control" id="input-file-now-custom-3"name="description" required="" rows="8"
+                                placeholder="Description">{{ $properties->description }}</textarea>
+                        </div>
+
+
                     </div>
+                    <!-- /.card-body -->
 
-                    <!-- select -->
-                    <div class="form-group">
-                        <label for="name">Description</label>
-                        <textarea class="form-control" id="input-file-now-custom-3"name="description" required="" rows="8"
-                            placeholder="Description">{{ $properties->description }}</textarea>
+                    <div class="card-footer">
+                        <a class="btn btn-primary" href="{{ route('properties.index') }}"> Back</a>
+                        <button type="submit" class="btn btn-primary">Create</button>
                     </div>
-
-
-                </div>
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-                    <a class="btn btn-primary" href="{{ route('properties.index') }}"> Back</a>
-                    <button type="submit" class="btn btn-primary">Create</button>
-                </div>
 
 
             </form>

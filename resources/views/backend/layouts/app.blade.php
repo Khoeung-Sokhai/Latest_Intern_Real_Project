@@ -293,7 +293,7 @@
 <script>
     $(document).ready(function() {
         // show the alert
-        $(".alert").fadeTo(5000, 500).slideUp(500, function() {
+        $(".alert").fadeTo(4000, 500).slideUp(500, function() {
             $(".alert").alert('close');
         });
     });

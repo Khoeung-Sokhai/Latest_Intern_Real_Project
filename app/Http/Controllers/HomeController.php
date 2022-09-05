@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Room;
 use App\Models\Property;
+use App\Models\ContactAdmin;
 use App\Models\Contact;
  
 use Illuminate\Http\Request;
@@ -45,7 +46,7 @@ class HomeController extends Controller
 
         $user = User::get()->count();
         $agent = User::where('type','=','manager')->count();
-        $contact = Contact::get()->count();
+        $contact = ContactAdmin::get()->count();
         $property = Property::get()->count();
        
 

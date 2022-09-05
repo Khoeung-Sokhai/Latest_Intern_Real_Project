@@ -21,7 +21,7 @@
 
                 <div class="row">
                     <div class="col-md-6">
-                        <div id="slider" class="owl-carousel product-slider">
+                        <div id="slider" class="owl-carousel product-slider " style="max-height: 350px">
                             <div class="item">
                                 <img src="{{ asset('/cover/' . $property->cover) }}" class="img-responsive" alt=""
                                     srcset="">
@@ -71,7 +71,7 @@
                                         <li class="fa fa-map-marker"></li> {{ $property->address }}
                                     </div>
                                 </div>
-                                <div class="product-price-discount"><span>${{ $property->price_sale }}</span>
+                                <div class="product-price-discount"><span>${{ $property->price_sale }}.00</span>
                                 </div>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
                                     incididunt ut

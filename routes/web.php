@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\AmenityController;
 use App\Http\Controllers\admin\RentController;
 use App\Http\Controllers\admin\SaleController;
 use App\Http\Controllers\admin\RentalController;
+use App\Http\Controllers\admin\ContactAdminController;
 
 //agent dashboard
 use App\Http\Controllers\agent\PostController;
@@ -28,6 +29,7 @@ use App\Http\Controllers\frontend\ForSaleController;
 use App\Http\Controllers\frontend\EditProfileController;
 use App\Http\Controllers\frontend\ProfileController;
 use App\Http\Controllers\frontend\WelcomeController;
+use App\Http\Controllers\frontend\MainPropertyController;
 
 use App\Http\Controllers\Auth\ForgetPasswordController;
 
@@ -72,6 +74,7 @@ Route::resource('/propertyRent', ForRentController::class);
 Route::resource('/propertyRental', ForRentalController::class);
 Route::resource('/propertySale', ForSaleController::class);
 Route::resource('/', WelcomeController::class);
+Route::resource('/property', MainPropertyController::class);
 Route::get('editprofile', [UserController::class, 'edit_profile']);
 
 Auth::routes();
@@ -110,6 +113,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::delete('/deletecover/{id}',[PropertyController::class,'deletecover']);
 
     Route::put('/update/{id}',[PropertyController::class,'update']);
+    Route::resource('/admin/contactAdmins', ContactAdminController::class);
 
     
     

@@ -11,8 +11,7 @@
             <!-- /.card-header -->
             <!-- form start -->
             
-            <form action="/admin/properties" method="post" enctype="multipart/form-data">
-                @csrf
+            
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">Name Property</label>
@@ -95,7 +94,7 @@
                                         <input type="file" id="file-ip-1" class="form-control m-0" accept="image/*" name="cover"
                                             onchange="showPreview(event);">
                                     </div>
-                                    <div class="form__files-container " id="files-list-container-cover"><label
+                                    <div class="form__files-container "><label
                                             class="form__files-container-form ">
 
                                             <div class="form__image-container" data-index="${index}">

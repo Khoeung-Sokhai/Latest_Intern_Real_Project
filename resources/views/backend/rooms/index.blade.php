@@ -133,7 +133,7 @@
                                 <td class="project-actions text-right">
 
                                     <div class="project-actions text-right">
-                                        <div class="project-actions text-right">
+                                        <div class="project-actions text-center">
                                             <form action="{{ route('rooms.destroy', $room->id) }}"
                                                 method="POST">
                                                 <a href="{{ route('rooms.edit', $room->id) }}"

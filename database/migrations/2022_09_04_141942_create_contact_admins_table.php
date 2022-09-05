@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('song_singers', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('song_id')->unsigned();
-            $table->integer('singer_id')->unsigned();
+        Schema::create('contact_admins', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->integer('phone');
+            $table->string('email');
+            $table->string('message');
+
+            $table->timestamps();
         });
     }
 
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('song_singers');
+        Schema::dropIfExists('contact_admins');
     }
 };

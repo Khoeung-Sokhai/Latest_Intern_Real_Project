@@ -39,9 +39,5 @@
         </form>
     </div>
 </div>
-    <script>
-        $(function() {
-            bsCustomFileInput.init();
-        });
-    </script>
+    
 @endsection

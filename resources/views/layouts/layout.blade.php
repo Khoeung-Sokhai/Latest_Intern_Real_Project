@@ -355,7 +355,16 @@
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/forms.js"></script>
     <script src="js/forms-2.js"></script>
-    <script src="js/color-switcher.js"></script>
+    <script src="js/color-switcher.js"></script> 
+    <script>
+    $(document).ready(function() {
+        // show the alert
+        $(".alert").fadeTo(4000, 500).slideUp(500, function() {
+            $(".alert").alert('close');
+        });
+    });
+    </script>
+
 
     @yield('content')
 

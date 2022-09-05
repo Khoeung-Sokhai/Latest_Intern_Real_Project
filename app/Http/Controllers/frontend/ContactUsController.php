@@ -4,7 +4,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Contact;
+use App\Models\ContactAdmin;
 use App\Models\ContactUs;
 
 class ContactUsController extends Controller
@@ -45,7 +45,7 @@ class ContactUsController extends Controller
             'message' => 'required',
         ]);
     
-        Contact::create($request->all());
+        ContactAdmin::create($request->all());
 
         return redirect()->route('contact.create')->with('success','Message sent successfully.');
     }

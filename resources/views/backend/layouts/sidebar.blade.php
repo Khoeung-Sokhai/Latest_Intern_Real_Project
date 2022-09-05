@@ -127,6 +127,14 @@
                     </li>
                 </ul>
             </li>
+            <li class="nav-item">
+                <a href="/admin/contactAdmins" class="nav-link">
+                    <i class="nav-icon bi bi-envelope-plus text-white"></i>
+                    <p class="text-white">
+                        Contact Us
+                    </p>
+                </a>
+            </li>
             <li class="nav-item" >
                 <a href="/admin/amenities" class="nav-link"
                     onclick="event.preventDefault();
@@ -134,7 +142,7 @@
                     style="margin-top:60px;">
                     <i class=" nav-icon bi bi-box-arrow-left text-white" ></i>
                     <p>
-                        <button class="btn btn-danger  btn-info btn-sm-5 ml-4">{{ __('Logout') }}</button>
+                        <button class="btn btn-primary btn-info btn-sm-5 ml-1 pl-5 pr-5">{{ __('Logout') }}</button>
                     </p>
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

@@ -113,7 +113,7 @@
                                     {{-- <td class="project-state">
                                     <span class="badge badge-success">{{ $product->status }}</span>
                                 </td> --}}
-                                    <td class="project-actions text-right">
+                                    <td class="project-actions text-center">
                                         <form action="{{ route('properties.destroy', $property->id) }}" method="post">
                                              @csrf
                                             @method('DELETE')

@@ -99,7 +99,7 @@
                                 <td class="project-actions text-right">
 
                                     <div class="project-actions text-right">
-                                        <div class="project-actions text-right">
+                                        <div class="project-actions text-center">
                                             <form action="{{ route('amenities.destroy', $amenity->id) }}"
                                                 method="POST">
                                                 <a href="{{ route('amenities.edit', $amenity->id) }}"
