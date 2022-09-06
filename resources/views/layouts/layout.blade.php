@@ -28,34 +28,34 @@
         rel="stylesheet">
 
     <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="css/fontawesome-5-all.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{asset('css/fontawesome-all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/fontawesome-all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/fontawesome-5-all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
 
     <!-- LEAFLET MAP -->
-    <link rel="stylesheet" href="css/leaflet.css">
-    <link rel="stylesheet" href="css/leaflet-gesture-handling.min.css">
-    <link rel="stylesheet" href="css/leaflet.markercluster.css">
-    <link rel="stylesheet" href="css/leaflet.markercluster.default.css">
+    <link rel="stylesheet" href="{{asset('css/leaflet.css')}}">
+    <link rel="stylesheet" href="{{asset('css/leaflet-gesture-handling.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/leaflet.markercluster.css')}}">
+    <link rel="stylesheet" href="{{asset('css/leaflet.markercluster.default.css')}}">
 
     <!-- ARCHIVES CSS -->
-    <link rel="stylesheet" href="css/search.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/aos2.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/lightcase.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="css/nice-select.css">
-    <link rel="stylesheet" href="css/slick.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" id="color" href="css/colors/dark-orange.css">
-    <link rel="stylesheet" id="color" href="css/default.css">
+    <link rel="stylesheet" href="{{asset('css/search.css')}}">
+    <link rel="stylesheet" href="{{asset('css/animate.css')}}">
+    <link rel="stylesheet" href="{{asset('css/aos.css')}}">
+    <link rel="stylesheet" href="{{asset('css/aos2.css')}}">
+    <link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{asset('css/lightcase.css')}}">
+    <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/menu.css')}}">
+    <link rel="stylesheet" href="{{asset('css/nice-select.css')}}">
+    <link rel="stylesheet" href="{{asset('css/slick.css')}}">
+    <link rel="stylesheet" href="{{asset('css/styles.css')}}">
+    <link rel="stylesheet" id="color" href="{{asset('css/colors/dark-orange.css')}}">
+    <link rel="stylesheet" id="color" href="{{asset('css/default.css')}}">
     <link rel="stylesheet" href="css/maps.css">
-    <link rel="stylesheet" id="color" href="css/colors/pink.css">
+    <link rel="stylesheet" id="color" href="{{asset('css/colors/pink.css')}}">
 
     <!-- Scripts -->
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
@@ -319,43 +319,43 @@
     <!-- Header Container / End -->
     <!-- ARCHIVES JS -->
 
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <script src="js/leaflet.js"></script>
-    <script src="js/leaflet-gesture-handling.min.js"></script>
-    <script src="js/leaflet-providers.js"></script>
-    <script src="js/leaflet.markercluster.js"></script>
-    <script src="js/tether.min.js"></script>
-    <script src="js/moment.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/mmenu.min.js"></script>
-    <script src="js/mmenu.js"></script>
-    <script src="js/map-style2.js"></script>
-    <script src="js/map4.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/aos2.js"></script>
-    <script src="js/nice-select.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="js/fitvids.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/typed.min.js"></script>
-    <script src="js/jquery.counterup.min.js"></script>
-    <script src="js/counterup.js"></script>
-    <script src="js/inner.js"></script>
-    <script src="js/imagesloaded.pkgd.min.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/smooth-scroll.min.js"></script>
-    <script src="js/lightcase.js"></script>
-    <script src="js/owl.carousel.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/ajaxchimp.min.js"></script>
-    <script src="js/newsletter.js"></script>
-    <script src="js/jquery.form.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script src="js/forms.js"></script>
-    <script src="js/forms-2.js"></script>
-    <script src="js/color-switcher.js"></script> 
+    <script src="{{asset('js/jquery-3.5.1.min.js')}}"></script>
+    <script src="{{asset('js/popper.min.js')}}"></script>
+    <script src="{{asset('js/jquery-ui.js')}}"></script>
+    <script src="{{asset('js/leaflet.js')}}"></script>
+    <script src="{{asset('js/leaflet-gesture-handling.min.js')}}"></script>
+    <script src="{{asset('js/leaflet-providers.js')}}"></script>
+    <script src="{{asset('js/leaflet.markercluster.js')}}"></script>
+    <script src="{{asset('js/tether.min.js')}}"></script>
+    <script src="{{asset('js/moment.js')}}"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/mmenu.min.js')}}"></script>
+    <script src="{{asset('js/mmenu.js')}}"></script>
+    <script src="{{asset('js/map-style2.js')}}"></script>
+    <script src="{{asset('js/map4.js')}}"></script>
+    <script src="{{asset('js/aos.js')}}"></script>
+    <script src="{{asset('js/aos2.js')}}"></script>
+    <script src="{{asset('js/nice-select.js')}}"></script>
+    <script src="{{asset('js/slick.min.js')}}"></script>
+    <script src="{{asset('js/fitvids.js')}}"></script>
+    <script src="{{asset('js/jquery.waypoints.min.js')}}"></script>
+    <script src="{{asset('js/typed.min.js')}}"></script>
+    <script src="{{asset('js/jquery.counterup.min.js')}}"></script>
+    <script src="{{asset('js/counterup.js')}}"></script>
+    <script src="{{asset('js/inner.js')}}"></script>
+    <script src="{{asset('js/imagesloaded.pkgd.min.js')}}"></script>
+    <script src="{{asset('js/isotope.pkgd.min.js')}}"></script>
+    <script src="{{asset('js/smooth-scroll.min.js')}}"></script>
+    <script src="{{asset('js/lightcase.js')}}"></script>
+    <script src="{{asset('js/owl.carousel.js')}}"></script>
+    <script src="{{asset('js/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{asset('js/ajaxchimp.min.js')}}"></script>
+    <script src="{{asset('js/newsletter.js')}}"></script>
+    <script src="{{asset('js/jquery.form.js')}}"></script>
+    <script src="{{asset('js/jquery.validate.min.js')}}"></script>
+    <script src="{{asset('js/forms.js')}}"></script>
+    <script src="{{asset('js/forms-2.js')}}"></script>
+    <script src="{{asset('js/color-switcher.js')}}"></script> 
     <script>
     $(document).ready(function() {
         // show the alert
@@ -376,7 +376,7 @@
                 <div class="row">
                     <div class="col-lg-5 col-md-6">
                         <div class="netabout">
-                            <a href="index.html" class="logo">
+                            <a href="/" class="logo">
                                 <img src="images/logo.png" alt="netcom">
                             </a>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum incidunt architecto
@@ -410,19 +410,18 @@
                             <h3>Navigation</h3>
                             <div class="nav-footer">
                                 <ul>
-                                    <li><a href="index.html">Home One</a></li>
-                                    <li><a href="properties-right-sidebar.html">Properties Right</a></li>
-                                    <li><a href="properties-full-list.html">Properties List</a></li>
-                                    <li><a href="properties-details.html">Property Details</a></li>
-                                    <li class="no-mgb"><a href="agents-listing-grid.html">Agents Listing</a></li>
+                                    <li><a href="/">Home One</a></li>
+                                    <li><a href="/propertyRent">Rent property</a></li>
+                                    <li><a href="/propertySale">Sale Property</a></li>
+                                    <li><a href="/propertyRental"> Rental Property</a></li>
+                                    
 
                                 </ul>
                                 <ul class="nav-right">
-                                    <li><a href="agent-details.html">Agents Details</a></li>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="blog.html">Blog Default</a></li>
-                                    <li><a href="blog-details.html">Blog Details</a></li>
-                                    <li class="no-mgb"><a href="contact-us.html">Contact Us</a></li>
+                                    <li><a href="/agent">Agents Details</a></li>
+                                    <li><a href="/aboutus">About Us</a></li>
+                                    <li><a href="/blog">Blog Default</a></li>
+                                    <li class="no-mgb"><a href="/contact">Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>

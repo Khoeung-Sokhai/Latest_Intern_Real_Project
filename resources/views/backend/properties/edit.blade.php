@@ -1,5 +1,6 @@
 @extends('backend.layouts.app')
 @section('content')
+
     <div class="content-wrapper px-5 mt-4">
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -81,9 +82,14 @@
                                 name="price_rental" id="exampleInputName1" placeholder="Price">
                         </div>
                     </div>
-
+                    <!-- select -->
+                    <div class="form-group">
+                        <label for="name">Description</label>
+                        <textarea class="form-control" id="input-file-now-custom-3"name="description" required="" rows="8"
+                            placeholder="Description">{{ $properties->description }}</textarea>
+                    </div>
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-3">
                             <!-- select -->
                             <div class="form-group">
                                 <label for="image">Cover</label>
@@ -92,65 +98,78 @@
                                         <input type="file" id="file-ip-1" class="form-control m-0" accept="image/*"
                                             name="cover" onchange="showPreview(event);">
                                     </div>
-                                    <div class="form__files-container " id="files-list-container-cover"><label
-                                            class="form__files-container-form ">
-
-                                            <div class="form__image-container" data-index="${index}">
-                                                <img class="form__image "
-                                                    src="{{ asset('/cover/' . $properties->cover) }}"
-                                                    id="file-ip-1-preview">
+                                    <div class="form__files-container " id="files-list-container-cover">
+                                            <div class="form__image-container-edit">
+                                                <button class="btn text-danger">X</button>
+                                                <img src="/cover/{{ $properties->cover }}" class="form__image ">
                                             </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-9">
                             <!-- select -->
                             <div class="form-group">
                                 <label for="image">Image</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" id="upload-files" class="form-control m-0" name="images[]"
-                                            multiple>
+                                        <input type="file" id="upload-files" class="form-control m-0" name="images[]" multiple>
                                     </div>
-                                    <div class="form__files-container" id="files-list-container"><label
-                                            class="form__files-container-form">
+                                    <div class="form__files-container" id="files-list-container">
+                                        @if (count($properties->images) > 0)
                                             @foreach ($properties->images as $img)
-                                            <div data-index="${index}">
-                                                <img src="{{ asset('/images/' . $img->image) }}" class="form__image"
-                                                    alt="" srcset="">
-                                            </div>
+                                                <div class="form__image-container-edit">
+                                                    <button class="btn text-danger">X</button>
+                                                    <img src="/images/{{ $img->image }}" class="form__image">
+                                                </div>
                                             @endforeach
+                                        @endif
                                     </div>
                                 </div>
+
                             </div>
+
                         </div>
-
-                        <!-- select -->
-                        <div class="form-group">
-                            <label for="name">Description</label>
-                            <textarea class="form-control" id="input-file-now-custom-3"name="description" required="" rows="8"
-                                placeholder="Description">{{ $properties->description }}</textarea>
-                        </div>
-
-
                     </div>
-                    <!-- /.card-body -->
+                </div>
+                <!-- /.card-body -->
 
-                    <div class="card-footer">
-                        <a class="btn btn-primary" href="{{ route('properties.index') }}"> Back</a>
-                        <button type="submit" class="btn btn-primary">Create</button>
-                    </div>
-
-
+                <div class="card-footer">
+                    <a class="btn btn-primary" href="{{ route('properties.index') }}"> Back</a>
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </div>
             </form>
-
         </div>
+        {{-- <div class="col-lg-3">
+                <p>Cover:</p>
+                <form action="/deletecover/{{ $properties->id }}" method="post">
+                <button class="btn text-danger">X</button>
+                @csrf
+                @method('delete')
+                </form>
+                <img src="/cover/{{ $properties->cover }}" class="img-responsive" style="max-height: 100px; max-width: 100px;" alt="" srcset="">
+                <br>
 
+
+                 @if (count($properties->images) > 0)
+                 <p>Images:</p>
+                 @foreach ($properties->images as $img)
+                 <form action="/deleteimage/{{ $img->id }}" method="post">
+                     <button class="btn text-danger">X</button>
+                     @csrf
+                     @method('delete')
+                     </form>
+                 <img src="/images/{{ $img->image }}" class="img-responsive" style="max-height: 100px; max-width: 100px;" alt="" srcset="">
+                 @endforeach
+                 @endif
+
+        </div> --}}
     </div>
     <script>
         $(function() {
             bsCustomFileInput.init();
         });
     </script>
+    <script></script>
+
 @endsection

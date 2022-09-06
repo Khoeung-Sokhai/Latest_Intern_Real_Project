@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Property;
 use Illuminate\Http\Request;
+use App\Models\Contact;
+use App\Models\ContactAgent;
 
-class DetailController extends Controller
+class ContactAgentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class DetailController extends Controller
      */
     public function index()
     {
-        $properties = Property::all();
-        return view('frontend.details.index',compact('properties'));
+       
+        // return view('frontend.contact');
     }
 
     /**
@@ -26,7 +27,7 @@ class DetailController extends Controller
      */
     public function create()
     {
-        //
+        return view('frontend.detail');
     }
 
     /**
@@ -37,7 +38,16 @@ class DetailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email'=>'required',
+            'phone' => 'required',
+            'message' => 'required',
+        ]);
+    
+        Contact::create($request->all());
+
+        return redirect()->route('detail.create')->with('success','Message sent successfully.');
     }
 
     /**
@@ -48,8 +58,7 @@ class DetailController extends Controller
      */
     public function show($id)
     {
-        $data=Property::find($id);
-        return view('frontend.detail',compact('data'));
+        //
     }
 
     /**

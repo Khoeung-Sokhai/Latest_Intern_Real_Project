@@ -73,7 +73,7 @@
                         @foreach ($contacts as $key => $contact)
                             <tr>
                                 <td>
-                                    {{$contact->id}}
+                                    {{  $key+$contacts->firstItem() }}
                                 </td>
                                 <td class="text-center">
                                     <a>

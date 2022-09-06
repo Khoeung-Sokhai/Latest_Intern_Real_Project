@@ -92,7 +92,7 @@ class ContactController extends Controller
         $contact->update($request->all());
     
         return redirect()->route('contacts.index')
-                        ->with('success','contact updated successfully');
+                        ->with('success','Contact updated successfully');
     }
 
     /**
@@ -106,6 +106,6 @@ class ContactController extends Controller
         $contact->delete();
     
         return redirect()->route('contacts.index')
-                        ->with('success','Address deleted successfully');
+                        ->with('success','Contact deleted successfully');
     }
 }

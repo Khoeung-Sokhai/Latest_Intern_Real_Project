@@ -15,7 +15,7 @@ class ContactAdminController extends Controller
      */
     public function index()
     {
-        $contacts = ContactAdmin::paginate(7);
+        $contacts = ContactAdmin::orderByDesc('id')->orderBy('id')->paginate(6);
         return view('backend.contactAdmins.index',compact('contacts'));
     }
 

@@ -14,7 +14,7 @@
                 <div class="text-heading text-center">
                     <div class="container">
                         <h1>About Our Company</h1>
-                        <h2><a href="index.html">Home </a> &nbsp;/&nbsp; About Us</h2>
+                        <h2><a href="/">Home </a> &nbsp;/&nbsp; About Us</h2>
                     </div>
                 </div>
             </section>
@@ -127,17 +127,20 @@
                                 <div class="col-lg-3 col-md-6 team-pro">
                                     <div class="team-wrap">
                                         <div class="team-img">
-                                            <img src="/profiles/avatars/{{ Auth::user()->avatar }}" alt="author-image"
+                                            <img src="/profiles/avatars/{{ $user->avatar }}" alt="author-image"
                                                 class="img-circle elevation-2">
                                         </div>
                                         <div class="team-content">
                                             <div class="team-info">
                                                 <h3>{{ $user->name }}</h3>
-                                                <p>Financial Advisor</p>
+                                                
+                                                <div> Phone: +855 {{ $user->phone }} </div>
+                                               
+                                                <div>Email: {{ $user->email }} </div>
                                                 <div class="team-socials">
                                                     <ul>
                                                         <li>
-                                                            <a href="#" title="facebook"><i class="fa fa-facebook"
+                                                            <a href="https://www.facebook.com/people/%E1%9E%81%E1%9E%BF%E1%9E%84-%E1%9E%9F%E1%9E%BB%E1%9E%81%E1%9F%83/100026212359394/" title="facebook"><i class="fa fa-facebook"
                                                                     aria-hidden="true"></i></a>
                                                             <a href="#" title="twitter"><i class="fa fa-twitter"
                                                                     aria-hidden="true"></i></a>

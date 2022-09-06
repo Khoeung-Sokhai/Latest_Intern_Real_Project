@@ -40,7 +40,7 @@
                                 <img src="{{ asset('/images/' . $img->image) }}" class="img-responsive" alt=""
                                     srcset="">
                             </div>
-                        @endforeach
+                             @endforeach
                         </div>
                         <div id="thumb" class="owl-carousel product-thumb">
                             <div class="item">

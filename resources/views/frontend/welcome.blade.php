@@ -195,12 +195,12 @@
                                 <div class="project-single">
                                     <div class="project-inner project-head">
                                         <div class="project-bottom">
-                                            <h4><a href="single-property-1.html">View Property</a><span
+                                            <h4><a href="{{ route('detail.show', $property->id)}}" >View Property</a><span
                                                     class="category">Real Estate</span></h4>
                                         </div>
                                         <div class="homes">
                                             <!-- homes img -->
-                                            <a href="single-property-1.html" class="homes-img">
+                                            <a href="{{ route('detail.show', $property->id)}}" class="homes-img">
                                                 <div class="homes-tag button alt featured">Featured</div>
                                                 <div class="homes-tag button sale rent">For Rent</div>
                                                 <div class="homes-price">Family Home</div>
@@ -213,9 +213,9 @@
                                     <!-- homes content -->
                                     <div class="homes-content">
                                         <!-- homes address -->
-                                        <h3><a href="/detail">{{$property->name}}</a></h3>
+                                        <h3><a href="{{ route('detail.show', $property->id)}}">{{$property->name}}</a></h3>
                                         <p class="homes-address mb-3">
-                                            <a href="single-property-1.html">
+                                            <a href="{{ route('detail.show', $property->id)}}">
                                                 <i class="fa fa-map-marker"></i><span>{{$property->address}}</span>
                                             </a>
                                         </p>
@@ -237,7 +237,7 @@
                                         <!-- Price -->
                                         <div class="price-properties">
                                             <h3 class="title mt-3">
-                                                <a href="single-property-1.html">$ {{$property->price_rent}}.00</a>
+                                                <a href="{{ route('detail.show', $property->id)}}">$ {{$property->price_rent}}.00</a>
                                             </h3>
                                             <div class="compare">
                                                 <a href="#" title="Share">
