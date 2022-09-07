@@ -14,6 +14,11 @@
             <form action="/admin/properties" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
+                    <div class="form-group" hidden>
+                        <label for="agent">Agent ID</label>
+                        <input type="text" class="form-control" name="agent_id" id="exampleInputName1" value="{{ Auth::user()->id }}"
+                            placeholder="">
+                    </div>
                     <div class="form-group">
                         <label for="name">Name Property</label>
                         <input type="text" class="form-control" name="name" id="exampleInputName1"
@@ -95,15 +100,15 @@
                                         <input type="file" id="file-ip-1" class="form-control m-0" accept="image/*" name="cover"
                                             onchange="showPreview(event);">
                                     </div>
-                                    <div class="form__files-container " id="files-list-container-cover"><label
+                                    <div class="form__files-container">
+                                        <div class="form__image-container-edit" data-index="${index}">
+                                            <label
                                             class="form__files-container-form ">
-                                            <div class="form__image-container" data-index="${index}">
-                                                <img class="form__image " id="file-ip-1-preview">
-                                              </div>
+                                            <img class="form__image " id="file-ip-1-preview">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                         <div class="col-sm-9">
                             <!-- select -->
@@ -116,9 +121,7 @@
                                     </div>
                                     <div class="form__files-container" id="files-list-container"></div>
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                 </div>

@@ -16,6 +16,11 @@
                 @csrf
                 @method('PUT')
                 <div class="card-body">
+                    <div class="form-group" hidden>
+                        <label for="agent">Agent ID</label>
+                        <input type="text" class="form-control" name="agent_id" id="exampleInputName1" value="{{ Auth::user()->id }}"
+                            placeholder="">
+                    </div>
                     <div class="form-group">
                         <label for="name">Name Property</label>
                         <input type="text" class="form-control" name="name" id="exampleInputName1"
@@ -95,14 +100,13 @@
                                 <label for="image">Cover</label>
                                 <div class="input-group">
                                     <div class="custom-file ">
-                                        <input type="file" id="file-ip-1" class="form-control m-0" accept="image/*"
+                                        <input type="file" id="imgInp" class="form-control m-0" accept="image/*"
                                             name="cover" onchange="showPreview(event);">
                                     </div>
                                     <div class="form__files-container " id="files-list-container-cover">
-                                            <div class="form__image-container-edit">
-                                                <button class="btn text-danger">X</button>
-                                                <img src="/cover/{{ $properties->cover }}" class="form__image ">
-                                            </div>
+                                        <div class="form__image-container-edit" data-index="${index}">
+                                            <img src="/cover/{{ $properties->cover }}" class="form__image " id="blah">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -118,10 +122,9 @@
                                     <div class="form__files-container" id="files-list-container">
                                         @if (count($properties->images) > 0)
                                             @foreach ($properties->images as $img)
-                                                <div class="form__image-container-edit">
-                                                    <button class="btn text-danger">X</button>
+                                                <a class="form__image-container" href="{{ url('admin/property-image/'.$img ->id.'/deleteimage') }}" >
                                                     <img src="/images/{{ $img->image }}" class="form__image">
-                                                </div>
+                                                </a>
                                             @endforeach
                                         @endif
                                     </div>
@@ -170,6 +173,14 @@
             bsCustomFileInput.init();
         });
     </script>
-    <script></script>
+    <script>
+        imgInp.onchange = evt => {
+        const [file] = imgInp.files
+            if (file) {
+                blah.src = URL.createObjectURL(file)
+            }
+        }
+    </script>
+
 
 @endsection

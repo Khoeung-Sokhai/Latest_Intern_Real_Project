@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('phone');
-            $table->timestamp('email_verified_at')->nullable();
+            $table->timestamp('email_verified_at')->nullable();         
             $table->string('password');
             $table->string('avatar')->default('user.png');
             $table->tinyInteger('type')->default(0);

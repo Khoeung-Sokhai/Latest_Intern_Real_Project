@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Casts\Attribute;
-  
+use App\Models\Property;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -19,6 +19,8 @@ class User extends Authenticatable
      * @var array
 
      */
+    // protected $primaryKey = 'agent_id';
+
     protected $fillable = [
         'name',
         'email',
@@ -27,7 +29,13 @@ class User extends Authenticatable
         'phone',
         'avatar',
         
+        
     ];
+
+    public function properties ()
+    {
+        return $this->hasMany(Property::class);
+    }
   
     /**
      * The attributes that should be hidden for serialization.

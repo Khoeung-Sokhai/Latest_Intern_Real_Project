@@ -6865,6 +6865,7 @@ a.button,
     background: #696565;
 }
 
+
 /* .header-user-name span:after {
     position: absolute;
     content: "";
@@ -17911,7 +17912,7 @@ h2.white {
 }
 
 .inner-pages .team-content {
-    height: 80px;
+    height: 70px;
     width: 100%;
     bottom: 0;
     position: absolute;

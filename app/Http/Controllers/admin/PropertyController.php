@@ -4,8 +4,10 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Property;
 use App\Models\Image;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 
 class PropertyController extends Controller
@@ -17,8 +19,10 @@ class PropertyController extends Controller
      */
     public function index()
     {
+        
+        
         $properties = Property::orderByDesc('id')->orderBy('id')->paginate(6);
-        return view('backend.properties.index', compact('properties'))->with('properties', $properties);
+        return view('backend.properties.index', compact('properties'));
     }
 
     /**
@@ -28,7 +32,6 @@ class PropertyController extends Controller
      */
     public function create()
     {
-
         return view('backend.properties.create');
         
     }
@@ -41,6 +44,8 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
+        
+        // dd($request->all());
         if ($request->hasFile("cover")) {
             $file = $request->file("cover");
             $imageName = time() . '_' . $file->getClientOriginalName();
@@ -55,10 +60,10 @@ class PropertyController extends Controller
                 "price_sale" => $request->price_sale,
                 "price_rent" => $request->price_rent,
                 "price_rental" => $request->price_rental,
-                
                 "cover" => $imageName,
                 //"types" => $request->types,
                 "description" => $request->description,
+                "agent_id" => $request->agent_id,
 
             ]);
             $properties->save();
@@ -75,8 +80,8 @@ class PropertyController extends Controller
                 Image::create($request->all());
             }
         }
-
-        // dd($request);
+     
+        
 
         return redirect()->route('properties.index')->with('success', 'Property created successfully!');
     }
@@ -139,6 +144,7 @@ class PropertyController extends Controller
             "description" => $request->description,            
 
             "cover" => $properties->cover,
+            "agent_id" => $request->agent_id,
         ]);
 
         if ($request->hasFile("images")) {

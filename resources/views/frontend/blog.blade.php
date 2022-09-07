@@ -45,8 +45,12 @@
                                     <div class="news-item-bottom">
                                         <a href="blog-details.html" class="news-link">Read more...</a>
                                         <div class="admin">
-                                            <p>By, Lisa Jhonson</p>
-                                            <img src="images/testimonials/ts-1.jpg" alt="">
+                                           
+                                                
+                                            
+                                            <p>By, {{ $property->agent->name }} </p>
+                                            <img src="/profiles/avatars/{{ $property->agent->avatar }}" alt="author-image"
+                                                class="img-circle elevation-2">
                                         </div>
                                     </div>
                                 </div>

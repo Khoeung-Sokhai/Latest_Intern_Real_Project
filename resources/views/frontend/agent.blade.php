@@ -149,7 +149,7 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-                                                <span><a href="team-details.html">View Profile</a></span>
+                                               
                                             </div>
                                         </div>
                                     </div>

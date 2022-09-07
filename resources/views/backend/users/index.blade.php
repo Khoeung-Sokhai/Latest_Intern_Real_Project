@@ -61,6 +61,7 @@
                                 <th class="text-center">
                                     Type
                                 </th>
+                               
                                 <th class="text-center">
                                     Create At
                                 </th>
@@ -104,6 +105,7 @@
                                     {{$user->type}}                                        
                                     </a>
                                 </td>
+                                
                                 <td class="text-center">
                                     <a>
                                         {{ $user->created_at}}

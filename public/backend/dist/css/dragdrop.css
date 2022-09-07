@@ -65,6 +65,20 @@
     margin: 0 10px;
 }
 
+.form__image-container-edit {
+    display: inline-block;
+    width: 49%;
+    height: 200px;
+    margin-bottom: 10px;
+    position: relative;
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: gray;
+}
+
 
 /* .form__image-container:not(:nth-child(2n)) {
     margin-right: 2%;

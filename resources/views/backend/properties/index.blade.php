@@ -1,8 +1,8 @@
 @extends('backend.layouts.app')
 @section('content')
-    <div class="content-wrapper">
-        <section class="content">
-
+<div class="content-wrapper">
+    <section class="content">
+        
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <div class="container-fluid">
@@ -39,9 +39,9 @@
                     </a>
                 </div>
                 @if ($message = Session::get('success'))
-                    <div class="alert alert-success">
-                        <p>{{ $message }}</p>
-                    </div>
+                <div class="alert alert-success">
+                    <p>{{ $message }}</p>
+                </div>
                 @endif
                 <div class="card-body p-0" style="height: 600px">
                     <table id="example2" class="table table-bordered table-hover table-striped projects">
@@ -59,7 +59,7 @@
                                 <th class="text-center">
                                     Prices
                                 </th>
-
+                                
                                 <th class="text-center">
                                     Cover
                                 </th>
@@ -75,12 +75,16 @@
                             </tr>
                         </thead>
                         <tbody id="myTable">
-
-                            @foreach ($properties as $key => $property)
+                            @php $i=1; @endphp
+                            
+                            @foreach ($properties as $key =>$property)
+                            
                                 <tr>
                                     <td class="text-center">
                                         <a>
-                                            {{  $key+$properties->firstItem() }}
+                                            
+                                            {{$key+$properties->firstItem()}}
+                                            
                                         </a>
                                     </td>
                                     <td class="text-center">
@@ -106,10 +110,9 @@
                                             ${{ $property->price_sale }}.00
                                         </a>
                                     </td>
-
+                                
                                     <td class="text-center">
-                                        <img src="{{ asset('/cover/' . $property->cover) }}" class="img-responsive"
-                                            style="max-height:50px; max-width:80px" alt="" srcset="">
+                                        <img src="{{asset('/cover/' . $property->cover) }}" class="img-responsive" style="max-height:50px; max-width:80px" alt="" srcset="">
                                     </td>
                                     <td class="text-center">
                                         <a>
@@ -121,30 +124,25 @@
                                 </td> --}}
                                     <td class="project-actions text-right">
                                         <form action="{{ route('properties.destroy', $property->id) }}" method="post">
-                                            @csrf
+                                             @csrf
                                             @method('DELETE')
-                                            <a href="{{ route('properties.show', $property->id) }}"
-                                                class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top"
-                                                title="Edit">
+                                            <a href="{{ route('properties.show', $property->id) }}" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
                                                 <i class="fas fa-pencil-alt"></i> View
                                             </a>
-                                            <a href="{{ route('properties.edit', $property->id) }}"
-                                                class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top"
-                                                title="Edit">
+                                            <a href="{{ route('properties.edit', $property->id) }}" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
                                                 <i class="fas fa-pencil-alt"></i> Edit
                                             </a>
                                             {{-- <button type="submit" style="border: none" class="action_btn"
                                                 data-toggle="tooltip" data-placement="top" title="Delete"> <i
                                                     class="fas fa-trash"></i></button> --}}
-                                            <input name="_method" type="hidden" value="DELETE">
-                                            <button type="submit"
-                                                class=" btn btn-danger btn-sm btn-flat show-alert-delete-box "
-                                                data-toggle="tooltip" title='Delete' style="border-radius: 4px">
+                                            <input name="_method" type="hidden" value="DELETE" >
+                                            <button type="submit" class=" btn btn-danger btn-sm btn-flat show-alert-delete-box " data-toggle="tooltip" title='Delete' style="border-radius: 4px">
                                                 <i class='fas fa-trash' style='color:#ffffff; '></i>Delete
                                             </button>
                                         </form>
                                     </td>
                                 </tr>
+                                
                             @endforeach
                         </tbody>
                     </table>
@@ -152,10 +150,10 @@
                 </div>
                 <!-- /.card-body -->
             </div>
+       
+   
+        <!-- /.card -->
 
-
-            <!-- /.card -->
-
-        </section>
-    </div>
+    </section> 
+</div>  
 @endsection

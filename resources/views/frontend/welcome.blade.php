@@ -168,9 +168,14 @@
                                             </div>
                                         </div>
                                         <div class="footer">
-                                            <a href="/detail">
-                                                <i class="fa fa-user"></i> Jhon Doe
-                                            </a>
+    
+                                            
+                                                <a href="/agent">
+                                                    <img src="/profiles/avatars/{{ $property->agent->avatar }} " alt="author-image"
+                                                    class="img-circle elevation-2"> Prepare by, {{ $property->agent->name }}
+                                                </a>
+                                                <span>2 months ago</span>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -249,9 +254,11 @@
                                             </div>
                                         </div>
                                         <div class="footer">
-                                            <a href="agent-details.html">
-                                                <i class="fa fa-user"></i> Jhon Doe
+                                            <a href="/agent">
+                                                <img src="/profiles/avatars/{{ $property->agent->avatar }} " alt="author-image"
+                                                class="img-circle elevation-2"> Prepare by, {{ $property->agent->name }}
                                             </a>
+                                            <span>2 months ago</span>
                                         </div>
                                     </div>
                                 </div>
