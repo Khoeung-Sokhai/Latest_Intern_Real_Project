@@ -208,21 +208,22 @@
                                         <div class="widget-boxed-body">
                                             <div class="sidebar-widget author-widget2">
                                                 <div class="author-box clearfix">
-                                                    <img src="{{ asset('images/testimonials/ts-1.jpg') }}"
+                                                    <img src="/profiles/avatars/{{ $data->agent->avatar }}"
                                                         alt="author-image" class="author__img">
-                                                    <h4 class="author__title">Lisa Clark</h4>
+                                                    <h4 class="author__title">{{ $data->agent->name }}</h4>
                                                     <p class="author__meta">Agent of Property</p>
+            
+                                                    
                                                 </div>
                                                 <ul class="author__contact">
                                                     <li><span class="la la-map-marker"><i
                                                                 class="fa fa-map-marker"></i></span>302 Av Park, New York
                                                     </li>
                                                     <li><span class="la la-phone"><i class="fa fa-phone"
-                                                                aria-hidden="true"></i></span><a href="#">(234) 0200
-                                                            17813</a></li>
+                                                                aria-hidden="true"></i></span><a href="#">+855 {{ $data->agent->phone }}</a></li>
                                                     <li><span class="la la-envelope-o"><i class="fa fa-envelope"
                                                                 aria-hidden="true"></i></span><a
-                                                            href="#">lisa@gmail.com</a></li>
+                                                            href="#">{{ $data->agent->email }}</a></li>
                                                 </ul>
                                                 <div class="agent-contact-form-sidebar">
                                                     <h4>Request Inquiry</h4>

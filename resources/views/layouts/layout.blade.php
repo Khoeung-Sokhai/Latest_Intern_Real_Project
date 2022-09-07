@@ -76,7 +76,7 @@
                     <div class="left-side">
                         <!-- Logo -->
                         <div id="logo">
-                            <a href="/"><img src="images/logo.png" alt=""></a>
+                            <a href="/"><img src="{{asset('images/logo.png')}}" alt=""></a>
                         </div>
                         <!-- Mobile Navigation -->
                         <div class="mmenu-trigger">
@@ -377,7 +377,7 @@
                     <div class="col-lg-5 col-md-6">
                         <div class="netabout">
                             <a href="/" class="logo">
-                                <img src="images/logo.png" alt="netcom">
+                                <img src="{{asset('images/logo.png')}}" alt="netcom">
                             </a>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum incidunt architecto
                                 soluta laboriosam, perspiciatis, aspernatur officiis esse.</p>

@@ -174,7 +174,7 @@
                                                     <img src="/profiles/avatars/{{ $property->agent->avatar }} " alt="author-image"
                                                     class="img-circle elevation-2"> Prepare by, {{ $property->agent->name }}
                                                 </a>
-                                                <span>2 months ago</span>
+                                                <span>{{ $property->created_at->diffForHumans() }}</span>
                                             
                                         </div>
                                     </div>
@@ -258,7 +258,7 @@
                                                 <img src="/profiles/avatars/{{ $property->agent->avatar }} " alt="author-image"
                                                 class="img-circle elevation-2"> Prepare by, {{ $property->agent->name }}
                                             </a>
-                                            <span>2 months ago</span>
+                                            <span>{{ $property->created_at->diffForHumans() }}</span>
                                         </div>
                                     </div>
                                 </div>

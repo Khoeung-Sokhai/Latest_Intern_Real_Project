@@ -115,7 +115,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::put('/update/{id}',[PropertyController::class,'update']);
     Route::resource('/admin/contactAdmins', ContactAdminController::class);
 
-Route::get('admin/propertyimage/{property_id}/deleteimage', [PropertyController::class,'deleteimage']);
+Route::get('admin/property-image/{property_id}/deleteimage', [PropertyController::class,'deleteimage']);
     
     
 });

@@ -25,6 +25,7 @@ return new class extends Migration
             $table->float('price_rental', 8, 2);
             $table->string('cover');
             $table->string('description');
+            $table->string('amenity');
             $table->unsignedBigInteger('agent_id'); 
            
             $table->foreign('agent_id')->references('id')->on('users');

@@ -25,6 +25,11 @@
                             placeholder="Enter Name">
                     </div>
                     <div class="form-group">
+                        <label for="amenity">Name Property</label>
+                        <input type="text" class="form-control" name="amenity" id="exampleInputName1"
+                            placeholder="Enter amenity">
+                    </div>
+                    <div class="form-group">
                         <label for="address">Address</label>
                         <input type="text" class="form-control" name="address" id="exampleInputName1"
                             placeholder="Address">

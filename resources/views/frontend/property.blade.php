@@ -190,7 +190,7 @@
                             <div class="project-inner project-head">
                                 <div class="homes">
                                     <!-- homes img -->
-                                    <a href="single-property-1.html" class="homes-img">
+                                    <a href="{{ route('detail.show', $property->id)}}" class="homes-img">
                                         <div class="homes-tag button alt featured">Featured</div>
                                         <div class="homes-tag button alt sale">For Rent</div>
                                         <div class="homes-price">${{$property->price_rent}}.00/month</div>
@@ -203,9 +203,9 @@
                             <!-- homes content -->
                             <div class="homes-content">
                                 <!-- homes address -->
-                                <h3><a href="single-property-1.html">{{$property->name}}</a></h3>
+                                <h3><a href="{{ route('detail.show', $property->id)}}">{{$property->name}}</a></h3>
                                 <p class="homes-address mb-3">
-                                    <a href="single-property-1.html">
+                                    <a href="{{ route('detail.show', $property->id)}}">
                                         <i class="fa fa-map-marker"></i><span>{{$property->address}}</span>
                                     </a>
                                 </p>
@@ -229,17 +229,18 @@
                                     </li> --}}
                                 </ul>
                                 <div class="footer">
-                                    <a href="agent-details.html">
-                                        <img src="images/testimonials/ts-1.jpg" alt="" class="mr-2"> Lisa
-                                        Jhonson
+                                    <a href="/agent">
+                                        <img src="/profiles/avatars/{{ $property->agent->avatar }} " alt="author-image"
+                                        class="img-circle elevation-2"> Prepare by, {{ $property->agent->name }}
                                     </a>
-                                    <span>2 months ago</span>
+                                    <span>{{ $property->created_at->diffForHumans() }}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     @endforeach
                     
+
                 </div>
                 <nav aria-label="..." class="pt-3">
                     <ul class="pagination mt-0">

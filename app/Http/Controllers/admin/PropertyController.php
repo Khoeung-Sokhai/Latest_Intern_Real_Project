@@ -4,10 +4,8 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Property;
 use App\Models\Image;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 
 class PropertyController extends Controller
@@ -19,10 +17,9 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        
-        
-        $properties = Property::orderByDesc('id')->orderBy('id')->paginate(6);
-        return view('backend.properties.index', compact('properties'));
+        $properties = Property::latest()->paginate(6);
+
+        return view('backend.properties.index', compact('properties'))->with('properties', $properties);
     }
 
     /**
@@ -32,6 +29,7 @@ class PropertyController extends Controller
      */
     public function create()
     {
+
         return view('backend.properties.create');
         
     }
@@ -44,8 +42,6 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
-        
-        // dd($request->all());
         if ($request->hasFile("cover")) {
             $file = $request->file("cover");
             $imageName = time() . '_' . $file->getClientOriginalName();
@@ -60,10 +56,12 @@ class PropertyController extends Controller
                 "price_sale" => $request->price_sale,
                 "price_rent" => $request->price_rent,
                 "price_rental" => $request->price_rental,
+                
                 "cover" => $imageName,
                 //"types" => $request->types,
                 "description" => $request->description,
                 "agent_id" => $request->agent_id,
+                "amenity" => $request->amenity,
 
             ]);
             $properties->save();
@@ -80,8 +78,8 @@ class PropertyController extends Controller
                 Image::create($request->all());
             }
         }
-     
-        
+
+        // dd($request);
 
         return redirect()->route('properties.index')->with('success', 'Property created successfully!');
     }
@@ -145,6 +143,7 @@ class PropertyController extends Controller
 
             "cover" => $properties->cover,
             "agent_id" => $request->agent_id,
+            "amenity" => $request->amenity,
         ]);
 
         if ($request->hasFile("images")) {
@@ -185,28 +184,15 @@ class PropertyController extends Controller
         return redirect()->route('properties.index')
             ->with('success', 'Address deleted successfully');
     }
-    public function deleteimage($id)
+    public function deleteimage(int $property_id)
     {
-        $images = Image::findOrFail($id);
-        if (File::exists("images/" . $images->image)) {
-            File::delete("images/" . $images->image);
+        $images = Image::findOrFail($property_id);
+        if (File::exists($images->image)) {
+            File::delete($images->image);
         }
 
-        Image::find($id)->delete();
-        return back();
+        $images->delete();
+        return redirect()-> back();
     }
 
-   
-    public function deletecover($id){
-        $cover=Property::findOrFail($id)->cover;
-        if (File::exists("cover/".$cover)) {
-           File::delete("cover/".$cover);
-       }
-       return back();
-    }
-    // //many to many
-    // public function types()
-    // {
-    //     return $this->belongsToMany(Type::class);
-    // }
 }

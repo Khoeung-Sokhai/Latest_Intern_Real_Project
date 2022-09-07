@@ -23,6 +23,7 @@ class Property extends Model
         'cover',
         'description',
         'agent_id',
+        'amenity',
         
     ];
 
