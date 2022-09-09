@@ -15,7 +15,7 @@ const previewImages = () => {
     if (FILE_LIST.length > 0) {
         FILE_LIST.forEach((addedFile, index) => {
             const content = `
-<div class="form__image-container" data-index="${index}">
+<div class="form__image-container js-remove-image" data-index="${index}">
   <img class="form__image " src="${addedFile.url}" alt="${addedFile.name}">
 </div>
 `;

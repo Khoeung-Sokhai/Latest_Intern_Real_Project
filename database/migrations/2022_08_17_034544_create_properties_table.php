@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('cover');
             $table->string('description');
             $table->string('amenity');
-            $table->unsignedBigInteger('agent_id'); 
+            $table->unsignedBigInteger('agent_id')->nullable();
            
             $table->foreign('agent_id')->references('id')->on('users');
 

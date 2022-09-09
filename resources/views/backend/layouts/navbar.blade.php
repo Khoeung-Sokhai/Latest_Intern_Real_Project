@@ -26,7 +26,7 @@
     
     <li class="nav-item">
       <a href="/editprofile">
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="user-panel mt-3 pb-3 d-flex">
             <div class="image">
                 <img src="/profiles/avatars/{{ Auth::user()->avatar }}" alt="author-image"
                     class="img-circle elevation-2">

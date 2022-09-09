@@ -16,9 +16,14 @@
                 @csrf
                 @method('PUT')
                 <div class="card-body">
-                    <div class="form-group" hidden>
-                        <label for="agent">Agent ID</label>
-                        <input type="text" class="form-control" name="agent_id" id="exampleInputName1" value="{{ Auth::user()->id }}"
+                    <div class="form-group" >
+                        <label for="amenity">Amenity</label>
+                        <input type="text" class="form-control" name="amenity" id="exampleInputName1" value="{{ $properties->amenity }}"
+                            placeholder="">
+                    </div>
+                    <div class="form-group" >
+                        <label for="agent_id">Agent_id</label>
+                        <input type="text" class="form-control" name="agent_id" id="exampleInputName1" value="{{ $properties->agent->id }}"
                             placeholder="">
                     </div>
                     <div class="form-group">
@@ -123,7 +128,7 @@
                                         @if (count($properties->images) > 0)
                                             @foreach ($properties->images as $img)
                                                 <a class="form__image-container" href="{{ url('admin/property-image/'.$img ->id.'/deleteimage') }}" >
-                                                    <img src="/images/{{ $img->image }}" class="form__image">
+                                                    <img src="/property/{{ $img->image }}" class="form__image">
                                                 </a>
                                             @endforeach
                                         @endif

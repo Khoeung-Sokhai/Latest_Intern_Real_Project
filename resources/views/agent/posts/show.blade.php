@@ -5,77 +5,60 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Show Property </h1>
+                        <h4 class="m-0 ">SHOW PROPERTY </h4>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/manager">Home</a></li>
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
-        <div class="pd-wrap">
+        <div class="pd-wrap mt-3">
             <div class="container">
-                <div class="heading-section">
-                    <h2>Property Details</h2>
-                </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <div id="slider" class="owl-carousel product-slider">
+                        <div id="slider" class="owl-carousel product-slider " style="max-height: 350px">
                             <div class="item">
-                                <img <img src="{{ asset('/cover/' . $property->cover) }}" class="img-responsive"
-                                    alt="" srcset="">
+                                <img src="{{ asset('/cover/' . $property->cover) }}" class="img-responsive" alt=""
+                                    srcset="">
                             </div>
-                            <div class="item">
+
+                            {{-- <div class="item">
                                 <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
                             </div>
+
                             <div class="item">
                                 <img
                                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQI6nUmObt62eDkqNSmIvCN_KkQExtbpJmUbVx_eTh_Y3v3r-Jw" />
-                            </div>
+                            </div> --}}
+                            @foreach ($property->images as $img)
                             <div class="item">
-                                <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
+                                <img src="{{ asset('/property/' . $img->image) }}" class="img-responsive" alt=""
+                                    srcset="">
                             </div>
-                            <div class="item">
-                                <img
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQI6nUmObt62eDkqNSmIvCN_KkQExtbpJmUbVx_eTh_Y3v3r-Jw" />
-                            </div>
-                            <div class="item">
-                                <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
-                            </div>
-                            <div class="item">
-                                <img
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQI6nUmObt62eDkqNSmIvCN_KkQExtbpJmUbVx_eTh_Y3v3r-Jw" />
-                            </div>
+                             @endforeach
                         </div>
                         <div id="thumb" class="owl-carousel product-thumb">
                             <div class="item">
-                                <img
-                                    src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" />
+                                <img src="{{ asset('/cover/' . $property->cover) }}" class="img-responsive" alt=""
+                                    srcset="">
                             </div>
-                            <div class="item">
-                                <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
-                            </div>
-                            <div class="item">
-                                <img
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQI6nUmObt62eDkqNSmIvCN_KkQExtbpJmUbVx_eTh_Y3v3r-Jw" />
-                            </div>
-                            <div class="item">
-                                <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
-                            </div>
-                            <div class="item">
-                                <img
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQI6nUmObt62eDkqNSmIvCN_KkQExtbpJmUbVx_eTh_Y3v3r-Jw" />
-                            </div>
-                            <div class="item">
-                                <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
-                            </div>
-                            <div class="item">
-                                <img
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQI6nUmObt62eDkqNSmIvCN_KkQExtbpJmUbVx_eTh_Y3v3r-Jw" />
-                            </div>
+                            @foreach ($property->images as $img)
+                                <div class="item">
+                                    <img src="{{ asset('/property/' . $img->image) }}" class="img-responsive" alt=""
+                                        srcset="">
+                                </div>
+                            @endforeach
+
+
+                            {{-- <div class="item">
+                                    <img src="{{ asset('/cover/' . $property->cover) }}" class="img-responsive" alt=""
+                                        srcset="">
+                                </div> --}}
+
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -87,7 +70,7 @@
                                         <li class="fa fa-map-marker"></li> {{ $property->address }}
                                     </div>
                                 </div>
-                                <div class="product-price-discount"><span>${{ $property->price_sale }}</span>
+                                <div class="product-price-discount"><span>${{ $property->price_sale }}.00</span>
                                 </div>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
                                     incididunt ut
@@ -167,6 +150,9 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div>
+                    <a class="btn btn-primary" href="{{ route('posts.index') }}"> Back</a>
                 </div>
             </div>
         </div>

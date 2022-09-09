@@ -7,6 +7,8 @@ use App\Models\Room;
 use App\Models\Property;
 use App\Models\ContactAdmin;
 use App\Models\Contact;
+use Illuminate\Support\Facades\Auth;
+
  
 use Illuminate\Http\Request;
   
@@ -62,8 +64,11 @@ class HomeController extends Controller
     public function managerHome()
     {
         $users = User::where('type','=','user')->count();
-        $property = Property::get()->count();
+
+        $property = Property::where('agent_id','=', Auth::user()->id)->get()->count();
+
         $contact = Contact::get()->count();
+
         return view('agent.layouts.dashboard',compact('users','property','contact'));
     }
 }

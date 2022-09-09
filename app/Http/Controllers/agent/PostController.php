@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\agent;
 use App\Http\Controllers\Controller;
 
-use App\Models\Post;
+
 use App\Models\Property;
 use App\Models\Image;
 use Illuminate\Http\Request;
@@ -19,15 +19,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $properties = Property::paginate(5);
+        $properties= Property::orderByDesc('id')->orderBy('id')->paginate(20);
         return view('agent.posts.index', compact('properties'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
 
@@ -48,33 +42,41 @@ class PostController extends Controller
             $imageName = time() . '_' . $file->getClientOriginalName();
             $file->move(\public_path("cover/"), $imageName);
 
-            $posts = new Post([
+            $properties = new Property([
                 "name" => $request->name,
                 "address" => $request->address,
                 "bedroom" => $request->bedroom,
                 "bathroom" => $request->bathroom,
                 "size" => $request->size,
-                "price" => $request->price,
-                "description" => $request->description,
-                "cover" => $imageName,
-                "types" => $request->types,
+                "price_sale" => $request->price_sale,
+                "price_rent" => $request->price_rent,
+                "price_rental" => $request->price_rental,
                 
+                "cover" => $imageName,
+                //"types" => $request->types,
+                "description" => $request->description,
+                "agent_id" => $request->agent_id,
+                "amenity" => $request->amenity,
 
             ]);
-            $posts->save();
+            $properties->save();
         }
+       
 
         if ($request->hasFile("images")) {
             $files = $request->file("images");
             foreach ($files as $file) {
                 $imageName = time() . '_' . $file->getClientOriginalName();
-                $request['post_id'] = $posts->id;
+                $request['property_id'] = $properties->id;
                 $request['image'] = $imageName;
-                $file->move(\public_path("/images"), $imageName);
+                $file->move(\public_path("/property"), $imageName);
                 Image::create($request->all());
             }
         }
-        return redirect()->route('posts.index')->with('success', 'Address created successfully!');
+
+        // dd($request);
+
+        return redirect()->route('posts.index')->with('success', 'Property created successfully!');
     }
 
     /**
@@ -83,10 +85,14 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Request $request, Property $property)
     {
+        // $property->load('images');
+        // $id=Property::get();
+
+        // dd($id);
         
-        return view('agent.posts.show',compact('post'));
+        return view('agent.posts.show',compact('property'));
     }
 
     /**
@@ -97,8 +103,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $posts = Post::findOrFail($id);
-        return view('agent.posts.edit')->with('posts', $posts);
+        $properties = Property::findOrFail($id);
+        return view('agent.posts.edit')->with('properties', $properties);
+        
     }
 
     /**
@@ -110,42 +117,46 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $posts = Post::findOrFail($id);
+        $properties = Property::findOrFail($id);
         if ($request->hasFile("cover")) {
-            if (File::exists("cover/" . $posts->cover)) {
-                File::delete("cover/" . $posts->cover);
+            if (File::exists("cover/" . $properties->cover)) {
+                File::delete("cover/" . $properties->cover);
             }
             $file = $request->file("cover");
-            $posts->cover = time() . "_" . $file->getClientOriginalName();
-            $file->move(\public_path("/cover"), $posts->cover);
-            $request['cover'] = $posts->cover;
+            $properties->cover = time() . "_" . $file->getClientOriginalName();
+            $file->move(\public_path("/cover"), $properties->cover);
+            $request['cover'] = $properties->cover;
         }
 
-        $posts->update([
+        $properties->update([
             "name" => $request->name,
             "address" => $request->address,
             "bedroom" => $request->bedroom,
             "bathroom" => $request->bathroom,
             "size" => $request->size,
-            "price" => $request->price,
-            "types" => $request->types,            
+            "price_sale" => $request->price_sale,
+            "price_rent" => $request->price_rent,
+            "price_rental" => $request->price_rental,
+            //"types" => $request->types,            
             "description" => $request->description,            
 
-            "cover" => $posts->cover,
+            "cover" => $properties->cover,
+            "agent_id" => $request->agent_id,
+            "amenity" => $request->amenity,
         ]);
 
         if ($request->hasFile("images")) {
             $files = $request->file("images");
             foreach ($files as $file) {
                 $imageName = time() . '_' . $file->getClientOriginalName();
-                $request["post_id"] = $id;
+                $request["property_id"] = $id;
                 $request["image"] = $imageName;
-                $file->move(\public_path("images"), $imageName);
+                $file->move(\public_path("property"), $imageName);
                 Image::create($request->all());
             }
         }
         return redirect()->route('posts.index')
-            ->with('success', 'Address updated successfully');
+            ->with('success', 'Property updated successfully');
     }
 
     /**
@@ -156,46 +167,31 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $posts = Post::findOrFail($id);
+        $properties = Property::findOrFail($id);
 
-        if (File::exists("cover/" . $posts->cover)) {
-            File::delete("cover/" . $posts->cover);
+        if (File::exists("cover/" . $properties->cover)) {
+            File::delete("cover/" . $properties->cover);
         }
-        $images = Image::where("post_id", $posts->id)->get();
+        $images = Image::where("property_id", $properties->id)->get();
         foreach ($images as $image) {
-            if (File::exists("images/" . $image->image)) {
-                File::delete("images/" . $image->image);
+            if (File::exists("property/" . $image->image)) {
+                File::delete("property/" . $image->image);
             }
         }
-        $posts->delete();
+        $properties->delete();
 
         return redirect()->route('posts.index')
             ->with('success', 'Address deleted successfully');
     }
-    public function deleteimage($id)
+    public function deleteimage(int $property_id)
     {
-        $images = Image::findOrFail($id);
-        if (File::exists("images/" . $images->image)) {
-            File::delete("images/" . $images->image);
+        $images = Image::findOrFail($property_id);
+        if (File::exists("property/" .$images->image)) {
+            File::delete("property/" .$images->image);
         }
 
-        Image::find($id)->delete();
-        return back();
+        $images->delete();
+        return redirect()-> back();
     }
-
-    public function deletecover($id)
-    {
-        $cover = Property::findOrFail($id)->cover;
-        if (File::exists("cover/" . $cover)) {
-            File::delete("cover/" . $cover);
-        }
-        return back();
-    }
-
-
-    //many to many
-    public function types()
-    {
-        return $this->belongsToMany(Type::class);
-    }
+   
 }

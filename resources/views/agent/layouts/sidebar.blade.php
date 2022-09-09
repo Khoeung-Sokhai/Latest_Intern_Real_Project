@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-primary-primary elevation-4 bg-primary">
     <!-- Brand Logo -->
     <a href="/home" class="brand-link text-center">
         <span class="brand-text font-weight-bold" >MANAGER</span>
@@ -9,10 +9,10 @@
         <a href="/editprofile">
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">                      
-                <img src="/profiles/avatars/{{ Auth::user()->avatar}}" alt="author-image" class="img-circle elevation-2">
+                <img src="/profiles/avatars/{{ Auth::user()->avatar}}" alt="author-image" style="color:#fff" class="img-circle elevation-2">
         </div>
             <div class="info">
-                <a href="/editprofile" class="d-block">{{auth()->user()->name}}</a>
+                <a href="/editprofile" style="color:#fff" class="d-block">{{auth()->user()->name}}</a>
             </div>
         </div>
     </a>
@@ -25,7 +25,7 @@
                     <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                     <li class="nav-item">
-                        <a href="/manager/home" class="nav-link">
+                        <a href="/manager/home" style="color:#fff" class="nav-link">
                             <i class="nav-icon bi bi-speedometer2"></i>
                             <p>
                                 Dashboard
@@ -51,7 +51,7 @@
                         </a>
                     </li> --}}
                     <li class="nav-item">
-                        <a href="/manager/posts" class="nav-link">
+                        <a href="/manager/posts" style="color:#fff" class="nav-link">
                           <i class="nav-icon bi bi-people"></i>
                           <p>
                             Post Property
@@ -59,7 +59,7 @@
                         </a>
                       </li>
                     <li class="nav-item">
-                        <a href="/manager/contacts" class="nav-link">
+                        <a href="/manager/contacts" style="color:#fff" class="nav-link">
                             <i class="nav-icon bi bi-envelope"></i>
                             <p>
                                Contact Us
@@ -68,12 +68,14 @@
                             
                         </a>
                     </li>
-                      <li class="nav-item">
-                        <a href="/admin/amenities" class="nav-link" onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();" style="margin-top:60px;">
-                            <i class=" nav-icon bi bi-box-arrow-left"></i>
+                    <li class="nav-item" >
+                        <a href="/admin/amenities" class="nav-link"
+                            onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();"
+                            style="margin-top:60px;">
+                            <i class=" nav-icon bi bi-box-arrow-left text-white" ></i>
                             <p>
-                                <button class="btn btn-success  btn-info btn-sm-5">{{ __('Logout') }}</button>
+                                <button class="btn btn-primary btn-info btn-sm-5 ml-1 pl-5 pr-5">{{ __('Logout') }}</button>
                             </p>
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

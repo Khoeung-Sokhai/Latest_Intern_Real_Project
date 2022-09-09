@@ -39,6 +39,20 @@ class CreateUsersSeeder extends Seeder
                 'phone'=>'012345678',
                 'password'=> bcrypt('12345678'),
              ],
+             [
+                'name'=>'Sokhai',
+                'email'=>'sokhai@gmail.com',
+                'type'=>2,
+                'phone'=>'012345678',
+                'password'=> bcrypt('12345678'),
+             ],
+             [
+                'name'=>'Socheata',
+                'email'=>'cheata@gmail.com',
+                'type'=>2,
+                'phone'=>'012345678',
+                'password'=> bcrypt('12345678'),
+             ],
         ];
     
         foreach ($users as $key => $user) {

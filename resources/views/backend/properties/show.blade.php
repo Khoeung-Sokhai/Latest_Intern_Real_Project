@@ -37,7 +37,7 @@
                             </div> --}}
                             @foreach ($property->images as $img)
                             <div class="item">
-                                <img src="{{ asset('/images/' . $img->image) }}" class="img-responsive" alt=""
+                                <img src="{{ asset('/property/' . $img->image) }}" class="img-responsive" alt=""
                                     srcset="">
                             </div>
                              @endforeach
@@ -49,7 +49,7 @@
                             </div>
                             @foreach ($property->images as $img)
                                 <div class="item">
-                                    <img src="{{ asset('/images/' . $img->image) }}" class="img-responsive" alt=""
+                                    <img src="{{ asset('/property/' . $img->image) }}" class="img-responsive" alt=""
                                         srcset="">
                                 </div>
                             @endforeach

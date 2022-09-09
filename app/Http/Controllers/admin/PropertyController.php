@@ -17,7 +17,7 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        $properties = Property::latest()->paginate(6);
+        $properties = Property::orderByDesc('id')->orderBy('id')->paginate(6);
 
         return view('backend.properties.index', compact('properties'))->with('properties', $properties);
     }
@@ -74,7 +74,7 @@ class PropertyController extends Controller
                 $imageName = time() . '_' . $file->getClientOriginalName();
                 $request['property_id'] = $properties->id;
                 $request['image'] = $imageName;
-                $file->move(\public_path("/images"), $imageName);
+                $file->move(\public_path("/property"), $imageName);
                 Image::create($request->all());
             }
         }
@@ -152,7 +152,7 @@ class PropertyController extends Controller
                 $imageName = time() . '_' . $file->getClientOriginalName();
                 $request["property_id"] = $id;
                 $request["image"] = $imageName;
-                $file->move(\public_path("images"), $imageName);
+                $file->move(\public_path("property"), $imageName);
                 Image::create($request->all());
             }
         }
@@ -175,8 +175,8 @@ class PropertyController extends Controller
         }
         $images = Image::where("property_id", $properties->id)->get();
         foreach ($images as $image) {
-            if (File::exists("images/" . $image->image)) {
-                File::delete("images/" . $image->image);
+            if (File::exists("property/" . $image->image)) {
+                File::delete("property/" . $image->image);
             }
         }
         $properties->delete();
@@ -187,12 +187,19 @@ class PropertyController extends Controller
     public function deleteimage(int $property_id)
     {
         $images = Image::findOrFail($property_id);
-        if (File::exists($images->image)) {
-            File::delete($images->image);
+        if (File::exists("property/" .$images->image)) {
+            File::delete("property/" .$images->image);
         }
 
         $images->delete();
         return redirect()-> back();
     }
 
+
+    public function showAgent(Property $property)
+    {
+        // $property->load('images');
+        
+        return view('backend.properties.show',compact('property'));
+    }
 }

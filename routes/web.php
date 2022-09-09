@@ -52,9 +52,7 @@ Route::get('reset-password/{token}', [ForgetPasswordController::class, 'showRese
 Route::post('reset-password', [ForgetPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 
-Route::get('/property', function () {
-    return view('frontend.property');
-});
+
 
 //  Route::get('/home', 'HomeController:class', ['index'])
 Route::get('/user', function(){
@@ -67,6 +65,9 @@ Route::resource('/blog', BlogController::class);
 
 Route::get('/contact', [ContactUsController::class, 'create'])->name('contact.create');
 Route::post('/contact', [ContactUsController::class, 'store'])->name('contact.store');
+
+Route::get('/detail', [DetailController::class, 'create'])->name('detail.create');
+Route::post('/detail', [DetailController::class, 'store'])->name('detail.store');
 
 Route::resource('/detail', DetailController::class);
 Route::resource('/agent', AgentController::class);
@@ -133,6 +134,7 @@ Route::middleware(['auth', 'user-access:manager'])->group(function () {
    // Route::resource('/agent/posts', PostController::class);
    Route::resource('/manager/contacts', ContactController::class);
    Route::resource('/manager/posts', PostController::class);
+   Route::get('manager/property-image/{property_id}/deleteimage', [PostController::class,'deleteimage']);
    
     
     

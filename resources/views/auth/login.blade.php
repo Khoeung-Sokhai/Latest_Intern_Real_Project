@@ -49,8 +49,8 @@
                         <div class="checkboxes float-left">
                             <div class="filter-tags-wrap">
                                 <input id="check-b" type="checkbox" name="check"
-                                    {{ old('remember') ? 'checked' : '' }}>
-                                <label for="check-b" class="form-check-label">{{ __('Remember Me') }}</label>
+                                {{ old('remember') ? 'checked' : '' }}>
+                            <label for="check-b" class="form-check-label">{{ __('Remember Me') }}</label>
                             </div>
                         </div>
                         @if (Route::has('password.request'))
