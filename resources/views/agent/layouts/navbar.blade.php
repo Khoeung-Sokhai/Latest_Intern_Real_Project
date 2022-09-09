@@ -5,13 +5,13 @@
   <!-- Left navbar links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" data-widget="pushmenu" href="#" style="color:#fff" role="button"><i class="fas fa-bars"></i></a>
+      <a class="nav-link" data-widget="pushmenu" href="#" role="button" style="color:#fff"><i class="fas fa-bars"></i></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="/" style="color:#fff" class="nav-link">Home</a>
+      <a href="/" class="nav-link text-white">Home</a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="/contact" style="color:#fff" class="nav-link">Contact</a>
+      <a href="/contact" class="nav-link text-white"style="color:#fff">Contact</a>
     </li>
   </ul>
 
@@ -25,7 +25,17 @@
     <!-- Notifications Dropdown Menu -->
     
     <li class="nav-item">
-      <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+      <a href="/editprofile">
+        <div class="user-panel mt-3 pb-3 d-flex">
+            <div class="image">
+                <img src="/profiles/avatars/{{ Auth::user()->avatar }}" alt="author-image"
+                    class="img-circle elevation-2">
+            </div>
+    </a>
+    <div class="info">
+        <a href="/editprofile" class="d-block text-white">{{ auth()->user()->name }}</a>
+    </div>
+      <a class="nav-link text-white" data-widget="fullscreen" href="#" role="button">
         <i class="fas fa-expand-arrows-alt"></i>
       </a>
     </li>

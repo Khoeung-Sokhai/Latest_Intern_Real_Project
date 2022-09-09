@@ -228,7 +228,7 @@
                                                 <div class="agent-contact-form-sidebar">
                                                     <h4>Request Inquiry</h4>
                                                     <form id="contactform" class="contact-form"
-                                                        action="/detail/{id}" name="contactform"
+                                                        action="{{ route('detail.store', $data->agent->id ) }}" name="contactform"
                                                         method="post" novalidate>
                                                         @csrf
                                                         <div id="success" class="successform">

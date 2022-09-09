@@ -85,14 +85,15 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Property $property)
+    public function show(Property $property)
     {
         // $property->load('images');
         // $id=Property::get();
 
         // dd($id);
         
-        return view('agent.posts.show',compact('property'));
+        
+        return view('agent.posts.show', compact('property'));
     }
 
     /**

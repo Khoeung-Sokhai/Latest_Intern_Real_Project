@@ -5,6 +5,8 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Property;
 use Illuminate\Http\Request;
+use App\Models\Contact;
+
 
 class DetailController extends Controller
 {
@@ -37,7 +39,16 @@ class DetailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email'=>'required',
+            'phone' => 'required',
+            'message' => 'required',
+        ]);
+    
+        Contact::create($request->all());
+
+        return redirect()->route('detail.create')->with('success','Message sent successfully.');
     }
 
     /**

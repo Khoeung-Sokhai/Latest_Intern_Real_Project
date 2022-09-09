@@ -45,7 +45,7 @@ class ContactAgentController extends Controller
             'message' => 'required',
         ]);
     
-        Contact::create($request->all());
+        ContactAgent::create($request->all());
 
         return redirect()->route('detail.create')->with('success','Message sent successfully.');
     }
