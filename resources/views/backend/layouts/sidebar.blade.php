@@ -68,31 +68,7 @@
 
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="/admin/rooms" class="nav-link">
-                    <i class="nav-icon bi bi-house-door text-white"></i>
-                    <p class="text-white">
-                        Room
-                    </p>
-
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="/admin/addresses" class="nav-link">
-                    <i class="nav-icon bi bi-geo-alt text-white"></i>
-                    <p class="text-white">
-                        Address
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="/admin/amenities" class="nav-link">
-                    <i class="nav-icon bi bi-p-square text-white"></i>
-                    <p class="text-white">
-                        Amenity
-                    </p>
-                </a>
-            </li>
+           
 
             <li class="nav-item">
                 <a href="#" class="nav-link">

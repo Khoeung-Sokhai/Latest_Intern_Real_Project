@@ -6,9 +6,7 @@ use App\Http\Controllers\HomeController;
 //admin dashboard
 use App\Http\Controllers\admin\PropertyController;
 use App\Http\Controllers\admin\UserController;
-use App\Http\Controllers\admin\RoomController;
-use App\Http\Controllers\admin\AddressController;
-use App\Http\Controllers\admin\AmenityController;
+
 use App\Http\Controllers\admin\RentController;
 use App\Http\Controllers\admin\SaleController;
 use App\Http\Controllers\admin\RentalController;
@@ -102,10 +100,6 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin', [HomeController::class, 'adminHome'])->name('admin.home');
     Route::get('/admin/dashboard', [HomeController::class, 'adminHome'])->name('admin.home');
     
-    
-    Route::resource('/admin/addresses', AddressController::class);
-    Route::resource('/admin/rooms', RoomController::class);
-    Route::resource('/admin/amenities', AmenityController::class);
     Route::resource('/admin/properties', PropertyController::class);
     Route::resource('/admin/users', UserController::class);
     Route::resource('/admin/rents', RentController::class);

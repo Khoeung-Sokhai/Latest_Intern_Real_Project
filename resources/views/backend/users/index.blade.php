@@ -44,7 +44,7 @@
                     <p>{{ $message }}</p>
                 </div>
                 @endif
-                <div class="card-body p-0" style="height: 200px">
+                <div class="card-body p-0" style="height: 300px">
                     <table id="example2" class="table table-bordered table-hover table-striped projects">
                         <thead>
                             <tr>
