@@ -108,7 +108,7 @@
                 <div class="portfolio col-xl-12">
                     <div class="slick-lancers">
                         @foreach($properties as $key => $property)
-                            
+                        @if($property->types == ["Sale"] || $property->types == ["Sale", "Rent"] || $property->types == ["Sale", "Rental"] || $property->types == ["Sale","Rent","Rental"] )
                        
                         <div class="agents-grid" data-aos="fade-up" data-aos-delay="150">
                             <div class="landscapes">
@@ -181,6 +181,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                     @endforeach
         </section>
         <!-- END SECTION PROPERTIES FOR SALE -->
@@ -195,6 +196,7 @@
                 <div class="portfolio col-xl-12">
                     <div class="slick-lancers">
                         @foreach($properties as $key => $property)
+                        @if($property->types == ["Rent"] || $property->types == ["Sale", "Rent"] || $property->types == ["Rent", "Rental"] || $property->types == ["Sale","Rent","Rental"] )
                         <div class="agents-grid" data-aos="fade-up" data-aos-delay="150">
                             <div class="landscapes">
                                 <div class="project-single">
@@ -264,6 +266,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                         @endforeach
         </section>
         <!-- END SECTION PROPERTIES FOR RENT -->

@@ -71,6 +71,7 @@
                     </section>
                     <div class="row">
                         @foreach($properties as $property) 
+                        @if($property->types == ["Sale"] || $property->types == ["Sale", "Rent"] || $property->types == ["Sale", "Rental"] || $property->types == ["Sale","Rent","Rental"] )
                         <div class="item col-lg-4 col-md-6 col-xs-12 landscapes sale">
                             <div class="project-single" data-aos="fade-up">
                                 <div class="project-inner project-head">
@@ -124,6 +125,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                         @endforeach
                     </div>
                     <nav aria-label="..." class="pt-3">

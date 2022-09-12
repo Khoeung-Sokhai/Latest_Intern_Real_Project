@@ -124,6 +124,7 @@
                                                     title="Edit">
                                                     <i class="fas fa-pencil-alt"></i> Edit
                                                 </a>
+                                                
                                                 @csrf
                                                 @method('DELETE')
                                                 {{-- <button type="submit" style="border: none" class="action_btn"

@@ -15,7 +15,7 @@ class ForRentController extends Controller
      */
     public function index()
     {
-        $properties= Property::paginate(6);
+        $properties = Property::orderByDesc('id')->paginate(6);
         return view('frontend.propertyRent',compact('properties'));
     }
 

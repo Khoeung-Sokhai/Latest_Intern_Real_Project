@@ -20,9 +20,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <div id="slider" class="owl-carousel product-slider " style="max-height: 350px">
+                        <div id="slider" class="owl-carousel product-slider " style="max-height: 400px; overflow:hidden;">
                             <div class="item">
-                                <img src="{{ asset('/cover/' . $property->cover) }}" class="img-responsive" alt=""
+                                <img src="{{ asset('/cover/' . $post->cover) }}" alt=""
                                     srcset="">
                             </div>
 
@@ -34,7 +34,7 @@
                                 <img
                                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQI6nUmObt62eDkqNSmIvCN_KkQExtbpJmUbVx_eTh_Y3v3r-Jw" />
                             </div> --}}
-                            @foreach ($property->images as $img)
+                            @foreach ($post->images as $img)
                             <div class="item">
                                 <img src="{{ asset('/property/' . $img->image) }}" class="img-responsive" alt=""
                                     srcset="">
@@ -43,10 +43,10 @@
                         </div>
                         <div id="thumb" class="owl-carousel product-thumb">
                             <div class="item">
-                                <img src="{{ asset('/cover/' . $property->cover) }}" class="img-responsive" alt=""
+                                <img src="{{ asset('/cover/' . $post->cover) }}" class="img-responsive" alt=""
                                     srcset="">
                             </div>
-                            @foreach ($property->images as $img)
+                            @foreach ($post->images as $img)
                                 <div class="item">
                                     <img src="{{ asset('/property/' . $img->image) }}" class="img-responsive" alt=""
                                         srcset="">
@@ -64,13 +64,13 @@
                     <div class="col-md-6">
                         <div class="product-dtl">
                             <div class="product-info">
-                                <div class="product-name">{{ $property->name }}</div>
+                                <div class="product-name">{{ $post->name }}</div>
                                 <div class="reviews-counter">
                                     <div class="rate">
-                                        <li class="fa fa-map-marker"></li> {{ $property->address }}
+                                        <li class="fa fa-map-marker"></li> {{ $post->address }}
                                     </div>
                                 </div>
-                                <div class="product-price-discount"><span>${{ $property->price_sale }}.00</span>
+                                <div class="product-price-discount"><span>${{ $post->price_sale }}.00</span>
                                 </div>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
                                     incididunt ut
@@ -85,19 +85,19 @@
                                     <div class="col-md-4">
                                         <span for="size">Bedrooms</span>
                                         <div class="reviews-counter">
-                                            <strong class="rate">{{ $property->bedroom }}</strong>
+                                            <strong class="rate">{{ $post->bedroom }}</strong>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <span for="color">Bathrooms</span>
                                         <div class="reviews-counter">
-                                            <strong class="rate">{{ $property->bathroom }}</strong>
+                                            <strong class="rate">{{ $post->bathroom }}</strong>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <span for="color">Size</span>
                                         <div class="reviews-counter">
-                                            <strong class="rate">{{ $property->size }} Square</strong>
+                                            <strong class="rate">{{ $post->size }} Square</strong>
                                         </div>
                                     </div>
                                 </div>
@@ -146,7 +146,7 @@
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="description" role="tabpanel"
                                 aria-labelledby="description-tab">
-                                {{ $property->description }}
+                                {{ $post->description }}
                             </div>
                         </div>
                     </div>

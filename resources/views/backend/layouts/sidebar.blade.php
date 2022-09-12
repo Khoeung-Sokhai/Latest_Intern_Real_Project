@@ -58,16 +58,7 @@
                     </p>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="/admin/properties" class="nav-link">
-                    <i class="nav-icon bi bi-people text-white"></i>
-                    <p class="text-white">
-                        Property
-
-                    </p>
-
-                </a>
-            </li>
+            
            
 
             <li class="nav-item">
@@ -79,7 +70,16 @@
                     </p>
                 </a>
                 <ul class="nav nav-treeview">
-
+                    <li class="nav-item">
+                        <a href="/admin/properties" class="nav-link">
+                            <i class="far fa-circle nav-icon text-white"></i>
+                            <p class="text-white">
+                                All Property
+        
+                            </p>
+        
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a href="/admin/rents" class="nav-link">
                             <i class="far fa-circle nav-icon text-white"></i>

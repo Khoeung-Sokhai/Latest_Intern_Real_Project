@@ -18,18 +18,27 @@
                                     <section class="headings-2 pt-0">
                                         <div class="pro-wrapper">
                                             <div class="detail-wrapper-body">
-                                                <div class="listing-title-bar">
+                                                <div class="listing-title-bar ">
 
-                                                    <h3>{{ $data->name }} <span class="mrg-l-5 category-tag">For
-                                                            Sale</span></h3>
-                                                    <div class="mt-0">
+                                                    <h3 >{{ $data->name }} 
+                                                    
+                                                    @foreach($data->types as $type)<span class="mrg-l-5 category-tag">  
+                                                        {{ $type }} 
+                                                    </span>
+                                                    @endforeach
+                                                    </h3>
+                                                    <div class="mt-1">
                                                         <a href="#listing-location" class="listing-address">
                                                             <i
                                                                 class="fa fa-map-marker pr-2 ti-location-pin mrg-r-5"></i>{{ $data->address }}
                                                         </a>
+                                                        
                                                     </div>
+                                                    
                                                 </div>
+                                                
                                             </div>
+                                            
                                             <div class="single detail-wrapper mr-2">
                                                 <div class="detail-wrapper-body">
                                                     <div class="listing-title-bar">
@@ -148,42 +157,11 @@
                                 <h5 class="mt-5">Amenities</h5>
                                 <!-- cars List -->
                                 <ul class="homes-list clearfix">
-                                    <li>
-                                        <i class="fa fa-check-square" aria-hidden="true"></i>
-                                        <span>Air Cond</span>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-check-square" aria-hidden="true"></i>
-                                        <span>Balcony</span>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-check-square" aria-hidden="true"></i>
-                                        <span>Internet</span>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-check-square" aria-hidden="true"></i>
-                                        <span>Dishwasher</span>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-check-square" aria-hidden="true"></i>
-                                        <span>Bedding</span>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-check-square" aria-hidden="true"></i>
-                                        <span>Cable TV</span>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-check-square" aria-hidden="true"></i>
-                                        <span>Parking</span>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-check-square" aria-hidden="true"></i>
-                                        <span>Pool</span>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-check-square" aria-hidden="true"></i>
-                                        <span>Fridge</span>
-                                    </li>
+                                   
+                                        {{-- <i class="fa fa-check-square" aria-hidden="true"></i> --}}
+                                        
+                                        <span>{{ $data->amenity }}</span>
+                                 
                                 </ul>
                             </div>
 
@@ -216,9 +194,7 @@
                                                     
                                                 </div>
                                                 <ul class="author__contact">
-                                                    <li><span class="la la-map-marker"><i
-                                                                class="fa fa-map-marker"></i></span>302 Av Park, New York
-                                                    </li>
+                                                    
                                                     <li><span class="la la-phone"><i class="fa fa-phone"
                                                                 aria-hidden="true"></i></span><a href="#">+855 {{ $data->agent->phone }}</a></li>
                                                     <li><span class="la la-envelope-o"><i class="fa fa-envelope"

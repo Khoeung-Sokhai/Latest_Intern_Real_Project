@@ -59,6 +59,9 @@
                                 <th class="text-center">
                                     Prices
                                 </th>
+                                <th class="text-center">
+                                    Types
+                                </th>
                                 
                                 <th class="text-center">
                                     Cover
@@ -110,7 +113,16 @@
                                             ${{ $property->price_sale }}.00
                                         </a>
                                     </td>
-                                
+                                    <td class="text-center">
+                                        {{--  --}}@foreach($property->types as $type)
+                                        <span class="badge badge-success" style="font-size: 15px; " > 
+                                            
+                                            
+                                            {{ $type }}
+                                            
+                                           
+                                        </span>@endforeach
+                                    </td>
                                     <td class="text-center">
                                         <img src="{{asset('/cover/' . $property->cover) }}" class="img-responsive" style="max-height:50px; max-width:80px" alt="" srcset="">
                                     </td>

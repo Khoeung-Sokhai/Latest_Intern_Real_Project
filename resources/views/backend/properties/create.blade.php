@@ -64,30 +64,30 @@
                         <label for="types[]">Type</label>
                         <div class="col-sm-4">
                             <div class="form-check mb-1">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
-                                    autocomplete="off">
+                                <input class="form-check-input" type="checkbox" name="types[]" value="Sale" id="flexCheckChecked"
+                                    checked>
                                 <label class="form-check-label" for="flexCheckChecked">For Sale</label>
                             </div>
-                            <input type="text" class="form-control" name="price_sale" id="exampleInputName1"
-                                placeholder="Price Sale">
+                            <input type="text" class="form-control" 
+                                name="price_sale" id="exampleInputName1" placeholder="Price">
                         </div>
                         <div class="col-sm-4">
                             <div class="form-check mb-1">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
-                                    autocomplete="off">
+                                <input class="form-check-input" type="checkbox" name="types[]" value="Rent" id="flexCheckChecked"
+                                    checked>
                                 <label class="form-check-label" for="flexCheckChecked">For Rent</label>
                             </div>
-                            <input type="text" class="form-control" name="price_rent" id="exampleInputName1"
-                                placeholder="Price Rent">
+                            <input type="text" class="form-control" 
+                                name="price_rent" id="exampleInputName1" placeholder="Price">
                         </div>
                         <div class="col-sm-4">
                             <div class="form-check mb-1">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
-                                    autocomplete="off">
+                                <input class="form-check-input" type="checkbox" name="types[]" value="Rental" id="flexCheckChecked"
+                                    checked>
                                 <label class="form-check-label" for="flexCheckChecked">For Rent</label>
                             </div>
-                            <input type="text" class="form-control" name="price_rental" id="exampleInputName1"
-                                placeholder="Price Rental">
+                            <input type="text" class="form-control" 
+                                name="price_rental" id="exampleInputName1" placeholder="Price">
                         </div>
                     </div>
                     <div class="form-group mb-3">
@@ -95,6 +95,7 @@
                         <textarea class="form-control" id="input-file-now-custom-3" name="description" required="" rows="8"
                             placeholder="Description"></textarea>
                     </div>
+                    
                     <div class="row">
                         <div class="col-sm-3">
                             <!-- select -->

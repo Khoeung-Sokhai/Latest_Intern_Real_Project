@@ -71,6 +71,7 @@
                     </section>
                     <div class="row">
                         @foreach($properties as $property) 
+                        @if($property->types == ["Rental"] || $property->types == ["Sale", "Rental"] || $property->types == ["Rent", "Rental"] || $property->types == ["Sale","Rent","Rental"] )
                         <div class="item col-lg-4 col-md-6 col-xs-12 landscapes sale">
                             <div class="project-single" data-aos="fade-up">
                                 <div class="project-inner project-head">
@@ -78,7 +79,7 @@
                                         <!-- homes img -->
                                         <a href="{{ route('detail.show', $property->id)}}" class="homes-img">
                                             <div class="homes-tag button alt featured">Featured</div>
-                                            <div class="homes-tag button alt sale">For Rental</div>
+                                            <div class="homes-tag button alt sale">Rental</div>
                                             <div class="homes-price">${{$property->price_rental}}.00/month</div>
                                             <div class="news-item-img">
                                                 <img class="img-responsive" src="{{asset('/cover/' . $property->cover) }}" style="height:250px; width:1000px" alt="blog image" >
@@ -124,6 +125,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                         @endforeach
                     </div>
                     <nav aria-label="..." class="pt-3">

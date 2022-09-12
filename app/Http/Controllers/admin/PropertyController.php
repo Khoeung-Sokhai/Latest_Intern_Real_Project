@@ -58,10 +58,11 @@ class PropertyController extends Controller
                 "price_rental" => $request->price_rental,
                 
                 "cover" => $imageName,
-                //"types" => $request->types,
+                "types" => $request->types,
                 "description" => $request->description,
                 "agent_id" => $request->agent_id,
                 "amenity" => $request->amenity,
+                
 
             ]);
             $properties->save();
@@ -138,12 +139,13 @@ class PropertyController extends Controller
             "price_sale" => $request->price_sale,
             "price_rent" => $request->price_rent,
             "price_rental" => $request->price_rental,
-            //"types" => $request->types,            
+            "types" => $request->types,            
             "description" => $request->description,            
 
             "cover" => $properties->cover,
             "agent_id" => $request->agent_id,
             "amenity" => $request->amenity,
+            
         ]);
 
         if ($request->hasFile("images")) {

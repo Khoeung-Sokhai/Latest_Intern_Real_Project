@@ -58,7 +58,7 @@ class ContactUsController extends Controller
      */
     public function show($id)
     {
-        //
+        // return view('backend.con.show',compact('property'));
     }
 
     /**

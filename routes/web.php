@@ -1,7 +1,7 @@
 <?php
-  
+
 use Illuminate\Support\Facades\Route;
-  
+
 use App\Http\Controllers\HomeController;
 //admin dashboard
 use App\Http\Controllers\admin\PropertyController;
@@ -42,10 +42,10 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-  
+
 
 Route::get('forget-password', [ForgetPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
-Route::post('forget-password', [ForgetPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+Route::post('forget-password', [ForgetPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
 Route::get('reset-password/{token}', [ForgetPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [ForgetPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
@@ -53,7 +53,7 @@ Route::post('reset-password', [ForgetPasswordController::class, 'submitResetPass
 
 
 //  Route::get('/home', 'HomeController:class', ['index'])
-Route::get('/user', function(){
+Route::get('/user', function () {
     factory(\App\User::class, 3)->create(); //3 users
 });
 
@@ -77,42 +77,38 @@ Route::resource('/property', MainPropertyController::class);
 Route::get('editprofile', [UserController::class, 'edit_profile']);
 
 Auth::routes();
-  
+
 /*------------------------------------------
 --------------------------------------------
 All Normal Users Routes List
 --------------------------------------------
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:user'])->group(function () {
-  
+
     Route::get('/home', [WelcomeController::class, 'index'])->name('home');
-    
-        
 });
-  
+
 /*------------------------------------------
 --------------------------------------------
 All Admin Routes List
 --------------------------------------------
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
-  
+
     Route::get('/admin', [HomeController::class, 'adminHome'])->name('admin.home');
     Route::get('/admin/dashboard', [HomeController::class, 'adminHome'])->name('admin.home');
-    
+
     Route::resource('/admin/properties', PropertyController::class);
     Route::resource('/admin/users', UserController::class);
     Route::resource('/admin/rents', RentController::class);
     Route::resource('/admin/sales', SaleController::class);
     Route::resource('/admin/rentals', RentalController::class);
-    Route::delete('/deletecover/{id}',[PropertyController::class,'deletecover']);
+    Route::delete('/deletecover/{id}', [PropertyController::class, 'deletecover']);
 
-    Route::put('/update/{id}',[PropertyController::class,'update']);
+    Route::put('/update/{id}', [PropertyController::class, 'update']);
     Route::resource('/admin/contactAdmins', ContactAdminController::class);
 
-Route::get('admin/property-image/{property_id}/deleteimage', [PropertyController::class,'deleteimage']);
-    
-    
+    Route::get('admin/property-image/{property_id}/deleteimage', [PropertyController::class, 'deleteimage']);
 });
 
 /*------------------------------------------
@@ -121,24 +117,21 @@ All Admin Routes List
 --------------------------------------------
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:manager'])->group(function () {
-  
     Route::get('/manager/home', [HomeController::class, 'managerHome'])->name('manager.home');
-    
+
     // Route::resource('/agent/contacts', ContactController::class);
-   // Route::resource('/agent/posts', PostController::class);
-   Route::resource('/manager/contacts', ContactController::class);
-   Route::resource('/manager/posts', PostController::class);
-   Route::get('manager/property-image/{property_id}/deleteimage', [PostController::class,'deleteimage']);
+    // Route::resource('/agent/posts', PostController::class);
+
+    Route::resource('/manager/contacts', ContactController::class);
+    Route::resource('/manager/posts', PostController::class);
+    Route::get('manager/property-image/{property_id}/deleteimage', [PostController::class, 'deleteimage']);
    
-    
-    
-    
 });
 
 
-    
-    Route::get('/editprofile',[ProfileController::class, 'edit_profile'])->name('edit_profile');
-    Route::put('/editprofile',[ProfileController::class, 'update_profile'])->name('update_profile');
 
-    Route::get('/editpassword', [ProfileController::class, 'changePassword'])->name('change-password');
-    Route::post('/editpassword', [ProfileController::class, 'updatePassword'])->name('update-password');
+Route::get('/editprofile', [ProfileController::class, 'edit_profile'])->name('edit_profile');
+Route::put('/editprofile', [ProfileController::class, 'update_profile'])->name('update_profile');
+
+Route::get('/editpassword', [ProfileController::class, 'changePassword'])->name('change-password');
+Route::post('/editpassword', [ProfileController::class, 'updatePassword'])->name('update-password');

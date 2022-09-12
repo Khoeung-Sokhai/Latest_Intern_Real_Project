@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Property;
 use App\Models\Image;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Database\Eloquent\Model;
@@ -85,7 +86,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Property $property)
+    public function show(Property $post)
     {
         // $property->load('images');
         // $id=Property::get();
@@ -93,7 +94,7 @@ class PostController extends Controller
         // dd($id);
         
         
-        return view('agent.posts.show', compact('property'));
+        return view('agent.posts.show', compact('post'));
     }
 
     /**

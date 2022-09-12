@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 @section('content')
-<div class="content-wrapper"> 
+<div class="content-wrapper">
     <section class="content">
         
             <!-- Content Header (Page header) -->
@@ -11,7 +11,7 @@
                             <div class="form-inline">
                                 <div class="input-group" data-widget="sidebar-search">
                                     <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                                        aria-label="Search">
+                                        aria-label="Search" id="myInput">
                                     <div class="input-group-append">
                                         <button class="btn btn-sidebar">
                                             <i class="fas fa-search fa-fw"></i>
@@ -32,12 +32,17 @@
             <!-- Default box -->
             <div class="card" style="margin: 0px 40px">
                 <div class="card-header">
-                    <h3 class="card-title">Property For Rent</h3>
+                    <h3 class="card-title">Property</h3>
                     <a href="/admin/property/create">
                         <a class="btn btn-success float-sm-right btn-info btn-sm" href="{{ route('properties.create') }}">
                             Create New Address</a>
                     </a>
                 </div>
+                @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    <p>{{ $message }}</p>
+                </div>
+                @endif
                 <div class="card-body p-0" style="height: 600px">
                     <table id="example2" class="table table-bordered table-hover table-striped projects">
                         <thead>
@@ -54,6 +59,9 @@
                                 <th class="text-center">
                                     Prices
                                 </th>
+                                <th class="text-center">
+                                    Types
+                                </th>
                                 
                                 <th class="text-center">
                                     Cover
@@ -69,13 +77,17 @@
                                 </th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="myTable">
                             @php $i=1; @endphp
-                            @foreach ($properties as $property)
+                            
+                            @foreach ($properties as $key =>$property)
+                            @if($property->types == ["Rent"] || $property->types == ["Sale", "Rent"] || $property->types == ["Rent", "Rental"] || $property->types == ["Sale","Rent","Rental"] )
                                 <tr>
                                     <td class="text-center">
                                         <a>
-                                            {{ $property->id }}.
+                                            
+                                            {{$key+$properties->firstItem()}}
+                                            
                                         </a>
                                     </td>
                                     <td class="text-center">
@@ -101,7 +113,14 @@
                                             ${{ $property->price_rent }}.00
                                         </a>
                                     </td>
-                                
+                                    <td class="text-center">
+                                        {{--  --}}
+                                        <span class="badge badge-success" style="font-size: 15px; " > 
+                                            
+                                           Rent
+                                           
+                                        </span>
+                                    </td>
                                     <td class="text-center">
                                         <img src="{{asset('/cover/' . $property->cover) }}" class="img-responsive" style="max-height:50px; max-width:80px" alt="" srcset="">
                                     </td>
@@ -113,7 +132,7 @@
                                     {{-- <td class="project-state">
                                     <span class="badge badge-success">{{ $product->status }}</span>
                                 </td> --}}
-                                    <td class="project-actions text-center">
+                                    <td class="project-actions text-right">
                                         <form action="{{ route('properties.destroy', $property->id) }}" method="post">
                                              @csrf
                                             @method('DELETE')
@@ -133,6 +152,7 @@
                                         </form>
                                     </td>
                                 </tr>
+                               @endif 
                             @endforeach
                         </tbody>
                     </table>
@@ -140,10 +160,10 @@
                 </div>
                 <!-- /.card-body -->
             </div>
-        
+       
+   
         <!-- /.card -->
 
-    </section>
-</div>
-   
+    </section> 
+</div>  
 @endsection

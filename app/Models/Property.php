@@ -24,9 +24,12 @@ class Property extends Model
         'description',
         'agent_id',
         'amenity',
+        'types',
         
     ];
-
+    protected $casts=[
+        'types'=>'array',
+    ];
     public function images(){
         return $this->hasMany(Image::class);
     }
